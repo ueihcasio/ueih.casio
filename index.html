@@ -72,6 +72,1192 @@
     .drawer { transform: translateX(100%); transition: transform .25s ease; }
     .drawer.open { transform: translateX(0); }
   
+    /* LIGHT MODE OVERRIDES */
+    html:not(.dark) body { background-color: #f8fafc !important; color: #0f172a !important; }
+    html:not(.dark) .glass { background: rgba(255,255,255,.78) !important; }
+    html:not(.dark) .bg-darkBg { background-color: #f8fafc !important; }
+    html:not(.dark) .bg-cardBg { background-color: rgba(255,255,255,.86) !important; }
+    html:not(.dark) .text-white { color: #0f172a !important; }
+    html:not(.dark) .text-gray-300 { color: #334155 !important; }
+    html:not(.dark) .text-gray-400 { color: #475569 !important; }
+    html:not(.dark) .text-gray-500 { color: #64748b !important; }
+    html:not(.dark) .text-gray-700 { color: #94a3b8 !important; }
+    html:not(.dark) .border-white\/10 { border-color: rgba(15,23,42,.12) !important; }
+    html:not(.dark) .border-white\/20 { border-color: rgba(15,23,42,.18) !important; }
+    html:not(.dark) .bg-white\/5 { background-color: rgba(15,23,42,.05) !important; }
+    html:not(.dark) .bg-white\/10 { background-color: rgba(15,23,42,.08) !important; }
+    html:not(.dark) .bg-black\/40 { background-color: rgba(255,255,255,.7) !important; }
+    html:not(.dark) .bg-black\/70 { background-color: rgba(0,0,0,.35) !important; }
+    html:not(.dark) .bg-black\/80 { background-color: rgba(0,0,0,.45) !important; }
+    html:not(.dark) .bg-black\/85 { background-color: rgba(0,0,0,.5) !important; }
+    html:not(.dark) .ring-glow { box-shadow: 0 0 0 1px rgba(220,38,38,.25), 0 0 18px rgba(220,38,38,.22) !important; }
+
+    /* Badges */
+    .badge-level-basic { background: rgba(148,163,184,0.2); color: #94a3b8; border:1px solid rgba(148,163,184,0.3); }
+    .badge-level-apply { background: rgba(59,130,246,0.2); color: #60a5fa; border:1px solid rgba(59,130,246,0.3); }
+    .badge-level-strong { background: rgba(249,115,22,0.2); color: #fb923c; border:1px solid rgba(249,115,22,0.3); }
+    .badge-level-vip { background: linear-gradient(135deg, rgba(168,85,247,0.2), rgba(236,72,153,0.2)); color: #e879f9; border:1px solid rgba(168,85,247,0.3); }
+    
+    .badge-target { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); font-size: 10px; padding: 2px 6px; border-radius: 6px; color: #cbd5e1; }
+  </style>
+</head>
+
+<body class="bg-darkBg text-white min-h-screen flex flex-col font-sans selection:bg-primary selection:text-white overflow-x-hidden">
+  <!-- background vibe -->
+  <div class="fixed inset-0 bg-grid-red z-[-1] pointer-events-none"></div>
+  <div class="fixed top-[-10%] left-[-10%] w-[520px] h-[520px] bg-primary/10 rounded-full blur-[120px] z-[-1]"></div>
+  <div class="fixed bottom-[-12%] right-[-12%] w-[520px] h-[520px] bg-white/5 rounded-full blur-[120px] z-[-1]"></div>
+
+  <!-- NAV -->
+  <nav class="sticky top-0 z-50 border-b border-white/10 glass">
+    <div class="container mx-auto px-4 h-20 flex justify-between items-center gap-3">
+
+      <!-- logo -->
+      <div onclick="switchPage('home')" class="cursor-pointer flex items-center gap-3 group select-none">
+        <div class="relative">
+          <img id="nav-avatar" src="https://scontent.fhan20-1.fna.fbcdn.net/v/t39.30808-6/555733813_810835077974194_4101748610057312325_n.jpg?_nc_cat=103&amp;ccb=1-7&amp;_nc_sid=6ee11a&amp;_nc_eui2=AeHDTdYqWdNFRjU8d2r5jAhjebOdWmQ9kbF5s51aZD2RsVt3gAla-o2NSldRE2u4LlyamgEm9bbvjTd0fQAskB83&amp;_nc_ohc=j7pYsq1YFBIQ7kNvwGqVswS&amp;_nc_oc=Adlz2s1APpaob9-hqj_UUypHn8eLkWbC-8zRqetZZ8lreC3w1g2GCzKFBPN2XtBmeX0&amp;_nc_zt=23&amp;_nc_ht=scontent.fhan20-1.fna&amp;_nc_gid=kLhRTL2MoYzPK4ngUv-7zA&amp;oh=00_AflDQh0Z0RhjS2cSJvz5BRhWHcCxjtV7wKug-AHH5fEuuA&amp;oe=6958839A" class="w-10 h-10 rounded-full border border-primary object-cover ring-glow group-hover:scale-110 transition duration-300">
+          <div class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-500 rounded-full border border-black"></div>
+        </div>
+        <div class="leading-none">
+          <h1 class="font-black text-lg tracking-tighter text-white group-hover:text-primary transition" id="nav-text">Ueih Casio</h1>
+          <div class="text-[10px] text-gray-400 font-bold tracking-widest uppercase">15S VDC</div>
+        </div>
+      </div>
+
+      <!-- desktop nav -->
+      <div class="hidden md:flex items-center space-x-8 text-sm font-bold uppercase tracking-wide">
+        <button onclick="switchPage('home')" class="hover:text-primary transition">Trang chủ</button>
+
+        <div class="relative group">
+          <button class="hover:text-primary py-6 flex items-center gap-1">
+            Kỹ năng Casio 580 <i class="fas fa-chevron-down text-[10px]"></i>
+          </button>
+          <div class="absolute top-full left-1/2 -translate-x-1/2 w-72 bg-cardBg border border-primary/30 soft-shadow rounded-2xl overflow-hidden hidden group-hover:block animate-slide-in">
+            <button onclick="switchPage('casio-so-hoc')" class="block w-full text-left px-4 py-3 hover:bg-primary/10 hover:text-primary border-b border-white/5 normal-case transition">🔢 Số Học </button>
+            <button onclick="switchPage('casio-ham-so')" class="block w-full text-left px-4 py-3 hover:bg-primary/10 hover:text-primary border-b border-white/5 normal-case transition">📈 Hàm Số &amp; Đồ Thị</button>
+            <button onclick="switchPage('casio-giai-tich')" class="block w-full text-left px-4 py-3 hover:bg-primary/10 hover:text-primary border-b border-white/5 normal-case transition">∫ Giải Tích</button>
+            <button onclick="switchPage('casio-hinh-hoc')" class="block w-full text-left px-4 py-3 hover:bg-primary/10 hover:text-primary border-b border-white/5 normal-case transition">📐 Hình Học Oxyz</button>
+            <button onclick="switchPage('casio-xac-suat')" class="block w-full text-left px-4 py-3 hover:bg-primary/10 hover:text-primary border-b border-white/5 normal-case transition">🎲 Xác Suất</button>
+            <button onclick="switchPage('casio-hay-la')" class="block w-full text-left px-4 py-3 bg-primary/10 hover:bg-primary hover:text-white font-bold normal-case transition">
+              <i class="fas fa-star text-yellow-400 mr-1"></i> Bài Toán Hay
+            </button>
+          </div>
+        </div>
+
+        <div class="relative group">
+          <button class="hover:text-primary py-6 flex items-center gap-1">
+            Kỹ năng Casio 880 <i class="fas fa-chevron-down text-[10px]"></i>
+          </button>
+          <div class="absolute top-full left-1/2 -translate-x-1/2 w-72 bg-cardBg border border-primary/30 soft-shadow rounded-2xl overflow-hidden hidden group-hover:block animate-slide-in">
+            <button onclick="switchPage('casio-880-so-hoc')" class="block w-full text-left px-4 py-3 hover:bg-primary/10 hover:text-primary border-b border-white/5 normal-case transition">🔢 Số Học </button>
+            <button onclick="switchPage('casio-880-ham-so')" class="block w-full text-left px-4 py-3 hover:bg-primary/10 hover:text-primary border-b border-white/5 normal-case transition">📈 Hàm Số &amp; Đồ Thị</button>
+            <button onclick="switchPage('casio-880-giai-tich')" class="block w-full text-left px-4 py-3 hover:bg-primary/10 hover:text-primary border-b border-white/5 normal-case transition">∫ Giải Tích</button>
+            <button onclick="switchPage('casio-880-hinh-hoc')" class="block w-full text-left px-4 py-3 hover:bg-primary/10 hover:text-primary border-b border-white/5 normal-case transition">📐 Hình Học Oxyz</button>
+            <button onclick="switchPage('casio-880-xac-suat')" class="block w-full text-left px-4 py-3 hover:bg-primary/10 hover:text-primary border-b border-white/5 normal-case transition">🎲 Xác Suất</button>
+            <button onclick="switchPage('casio-880-hay-la')" class="block w-full text-left px-4 py-3 bg-primary/10 hover:bg-primary hover:text-white font-bold normal-case transition">
+              <i class="fas fa-star text-yellow-400 mr-1"></i> Bài Toán Hay
+            </button>
+          </div>
+        </div>
+
+        <div class="relative group">
+          <button class="hover:text-primary py-6 flex items-center gap-1">
+            Kho Đề Thi <i class="fas fa-chevron-down text-[10px]"></i>
+          </button>
+          <div class="absolute top-full left-1/2 -translate-x-1/2 w-64 bg-cardBg border border-primary/30 soft-shadow rounded-2xl overflow-hidden hidden group-hover:block animate-slide-in">
+            <button onclick="switchPage('exam-tsa')" class="block w-full text-left px-4 py-3 hover:bg-primary/10 hover:text-red-400 border-b border-white/5 normal-case transition">🔴 TSA (Bách Khoa)</button>
+            <button onclick="switchPage('exam-hsa')" class="block w-full text-left px-4 py-3 hover:bg-primary/10 hover:text-green-400 border-b border-white/5 normal-case transition">🟢 HSA (ĐHQG)</button>
+            <button onclick="switchPage('exam-thpt')" class="block w-full text-left px-4 py-3 hover:bg-primary/10 hover:text-blue-400 border-b border-white/5 normal-case transition">🔵 THPT Quốc Gia</button>
+            <button onclick="switchPage('exam-vact')" class="block w-full text-left px-4 py-3 hover:bg-primary/10 hover:text-purple-400 normal-case transition">🟣 Đề VACT</button>
+          </div>
+        </div>
+
+        <button onclick="switchPage('favorites')" class="hover:text-primary transition flex items-center gap-2">
+          <i class="fas fa-bookmark"></i> Yêu thích
+        </button>
+      </div>
+
+      <!-- right controls -->
+      <div class="flex items-center gap-2">
+        <button onclick="toggleTheme()" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 hover:border-primary/40 hover:bg-white/10 transition flex items-center justify-center" title="Light/Dark">
+          <i id="theme-ico" class="fas fa-moon"></i>
+        </button>
+
+        <button onclick="requestAdmin()" id="btn-admin" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 hover:border-primary/40 hover:bg-white/10 transition flex items-center justify-center" title="Admin">
+          <i class="fas fa-user-secret"></i>
+        </button>
+
+        <div id="admin-indicator" class="hidden md:block w-2 h-2 rounded-full bg-gray-600"></div>
+
+        <!-- mobile menu btn -->
+        <button onclick="openDrawer()" class="md:hidden w-10 h-10 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition flex items-center justify-center" title="Menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer -->
+  <div id="drawer-overlay" class="fixed inset-0 z-[90] hidden">
+    <div class="absolute inset-0 bg-black/70 backdrop-blur-sm" onclick="closeDrawer()"></div>
+    <div id="drawer" class="drawer absolute top-0 right-0 h-full w-[88%] max-w-sm bg-cardBg border-l border-white/10 soft-shadow p-4">
+      <div class="flex items-center justify-between mb-4">
+        <div class="font-black tracking-tight text-lg">Menu</div>
+        <button onclick="closeDrawer()" class="w-9 h-9 rounded-lg bg-white/5 hover:bg-white/10 transition flex items-center justify-center">
+          <i class="fas fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="space-y-2 text-sm">
+        <button onclick="switchPage('home'); closeDrawer();" class="w-full text-left px-3 py-3 rounded-xl bg-white/5 hover:bg-white/10 transition flex items-center gap-2">
+          <i class="fas fa-house text-primary w-5"></i> Trang chủ
+        </button>
+
+        <details class="group rounded-xl bg-white/5 overflow-hidden">
+          <summary class="cursor-pointer list-none px-3 py-3 flex items-center justify-between">
+            <span class="font-bold flex items-center gap-2"><i class="fas fa-calculator text-primary w-5"></i> Kỹ năng Casio 580</span>
+            <i class="fas fa-chevron-down text-xs opacity-70 group-open:rotate-180 transition"></i>
+          </summary>
+          <div class="pb-2">
+            <button onclick="switchPage('casio-so-hoc'); closeDrawer();" class="w-full text-left px-4 py-2 hover:bg-white/10 transition">🔢 Số Học </button>
+            <button onclick="switchPage('casio-ham-so'); closeDrawer();" class="w-full text-left px-4 py-2 hover:bg-white/10 transition">📈 Hàm Số &amp; Đồ Thị</button>
+            <button onclick="switchPage('casio-giai-tich'); closeDrawer();" class="w-full text-left px-4 py-2 hover:bg-white/10 transition">∫ Giải Tích</button>
+            <button onclick="switchPage('casio-hinh-hoc'); closeDrawer();" class="w-full text-left px-4 py-2 hover:bg-white/10 transition">📐 Hình Học Oxyz</button>
+            <button onclick="switchPage('casio-xac-suat'); closeDrawer();" class="w-full text-left px-4 py-2 hover:bg-white/10 transition">🎲 Xác Suất</button>
+            <button onclick="switchPage('casio-hay-la'); closeDrawer();" class="w-full text-left px-4 py-2 hover:bg-white/10 transition">⭐ Bài Toán Hay</button>
+          </div>
+        </details>
+
+        <details class="group rounded-xl bg-white/5 overflow-hidden">
+          <summary class="cursor-pointer list-none px-3 py-3 flex items-center justify-between">
+            <span class="font-bold flex items-center gap-2"><i class="fas fa-calculator text-primary w-5"></i> Kỹ năng Casio 880</span>
+            <i class="fas fa-chevron-down text-xs opacity-70 group-open:rotate-180 transition"></i>
+          </summary>
+          <div class="pb-2">
+            <button onclick="switchPage('casio-880-so-hoc'); closeDrawer();" class="w-full text-left px-4 py-2 hover:bg-white/10 transition">🔢 Số Học </button>
+            <button onclick="switchPage('casio-880-ham-so'); closeDrawer();" class="w-full text-left px-4 py-2 hover:bg-white/10 transition">📈 Hàm Số &amp; Đồ Thị</button>
+            <button onclick="switchPage('casio-880-giai-tich'); closeDrawer();" class="w-full text-left px-4 py-2 hover:bg-white/10 transition">∫ Giải Tích</button>
+            <button onclick="switchPage('casio-880-hinh-hoc'); closeDrawer();" class="w-full text-left px-4 py-2 hover:bg-white/10 transition">📐 Hình Học Oxyz</button>
+            <button onclick="switchPage('casio-880-xac-suat'); closeDrawer();" class="w-full text-left px-4 py-2 hover:bg-white/10 transition">🎲 Xác Suất</button>
+            <button onclick="switchPage('casio-880-hay-la'); closeDrawer();" class="w-full text-left px-4 py-2 hover:bg-white/10 transition">⭐ Bài Toán Hay</button>
+          </div>
+        </details>
+
+        <details class="group rounded-xl bg-white/5 overflow-hidden">
+          <summary class="cursor-pointer list-none px-3 py-3 flex items-center justify-between">
+            <span class="font-bold flex items-center gap-2"><i class="fas fa-folder-open text-primary w-5"></i> Kho Đề Thi</span>
+            <i class="fas fa-chevron-down text-xs opacity-70 group-open:rotate-180 transition"></i>
+          </summary>
+          <div class="pb-2">
+            <button onclick="switchPage('exam-tsa'); closeDrawer();" class="w-full text-left px-4 py-2 hover:bg-white/10 transition">🔴 TSA</button>
+            <button onclick="switchPage('exam-hsa'); closeDrawer();" class="w-full text-left px-4 py-2 hover:bg-white/10 transition">🟢 HSA</button>
+            <button onclick="switchPage('exam-thpt'); closeDrawer();" class="w-full text-left px-4 py-2 hover:bg-white/10 transition">🔵 THPTQG</button>
+            <button onclick="switchPage('exam-vact'); closeDrawer();" class="w-full text-left px-4 py-2 hover:bg-white/10 transition">🟣 VACT</button>
+          </div>
+        </details>
+
+        <button onclick="switchPage('favorites'); closeDrawer();" class="w-full text-left px-3 py-3 rounded-xl bg-white/5 hover:bg-white/10 transition flex items-center gap-2">
+          <i class="fas fa-bookmark text-primary w-5"></i> Yêu thích
+        </button>
+
+        <div class="mt-4 rounded-xl border border-white/10 p-3 text-xs text-gray-400">
+          <div class="font-bold text-gray-300 mb-1">Tip nhỏ</div>
+          <div>Vuốt ngang ở Trang chủ để xem thêm card. Dấu ⭐ để lưu bài, ✅ để đánh dấu đã học.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <main class="flex-grow">
+
+    <!-- HOME -->
+    <section id="page-home" class="page-section">
+      <div class="pt-16 pb-10 text-center px-4 relative">
+
+        <div class="relative z-10 mb-6 group">
+          <img id="home-avatar-big" src="https://scontent.fhan20-1.fna.fbcdn.net/v/t39.30808-6/555733813_810835077974194_4101748610057312325_n.jpg?_nc_cat=103&amp;ccb=1-7&amp;_nc_sid=6ee11a&amp;_nc_eui2=AeHDTdYqWdNFRjU8d2r5jAhjebOdWmQ9kbF5s51aZD2RsVt3gAla-o2NSldRE2u4LlyamgEm9bbvjTd0fQAskB83&amp;_nc_ohc=j7pYsq1YFBIQ7kNvwGqVswS&amp;_nc_oc=Adlz2s1APpaob9-hqj_UUypHn8eLkWbC-8zRqetZZ8lreC3w1g2GCzKFBPN2XtBmeX0&amp;_nc_zt=23&amp;_nc_ht=scontent.fhan20-1.fna&amp;_nc_gid=kLhRTL2MoYzPK4ngUv-7zA&amp;oh=00_AflDQh0Z0RhjS2cSJvz5BRhWHcCxjtV7wKug-AHH5fEuuA&amp;oe=6958839A" class="w-32 h-32 rounded-full border-4 border-primary mx-auto ring-glow object-cover transition transform group-hover:scale-105 duration-500">
+        </div>
+
+        <h1 class="relative z-10 text-4xl md:text-7xl font-black mb-3 uppercase tracking-tighter">
+          <span class="text-white">Ueih</span> <span class="text-primary">Casio</span>
+        </h1>
+
+        <p class="relative z-10 text-lg md:text-2xl text-gray-300 font-medium italic mb-10" id="home-slogan">Casio Lẹ Lẹ Rồi Chuyển Câu Thoi🐣</p>
+
+        <!-- quick actions -->
+        <div class="relative z-10 container mx-auto max-w-5xl">
+          <div class="flex flex-col md:flex-row gap-3 justify-center mb-8">
+            <button onclick="switchPage('casio-so-hoc')" class="px-5 py-3 rounded-2xl bg-primary hover:bg-primaryDark transition font-black tracking-wide flex items-center justify-center gap-2 soft-shadow">
+              <i class="fas fa-play"></i> Vào học luôn
+            </button>
+            <button onclick="switchPage('casio-880-so-hoc')" class="px-5 py-3 rounded-2xl bg-white/5 hover:bg-white/10 transition font-bold tracking-wide flex items-center justify-center gap-2 border border-white/10">
+              <i class="fas fa-calculator"></i> Vào học 880
+            </button>
+
+            <button onclick="switchPage('exam-tsa')" class="px-5 py-3 rounded-2xl bg-white/5 hover:bg-white/10 transition font-bold tracking-wide flex items-center justify-center gap-2 border border-white/10">
+              <i class="fas fa-file-lines"></i> Quất đề TSA
+            </button>
+            <button onclick="switchPage('favorites')" class="px-5 py-3 rounded-2xl bg-white/5 hover:bg-white/10 transition font-bold tracking-wide flex items-center justify-center gap-2 border border-white/10">
+              <i class="fas fa-bookmark"></i> Bài đã lưu
+            </button>
+          </div>
+
+          <!-- feature cards slider -->
+          <div class="horizontal-scroll px-2 pb-4">
+            <div id="home-cards-anchor" class="hidden"></div>
+          </div>
+          <p class="md:hidden text-xs text-gray-500 mt-1 animate-pulse"><i class="fas fa-arrows-left-right"></i> Vuốt để xem thêm</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- DETAIL PAGE -->
+    <section id="page-detail" class="page-section container mx-auto px-4 py-10 max-w-4xl">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6 border-b border-white/10 pb-4">
+        <div class="min-w-0">
+          <button onclick="switchPage('home')" class="text-gray-400 hover:text-primary text-xs font-bold uppercase mb-2 flex items-center gap-1">
+            <i class="fas fa-arrow-left"></i> Trang chủ
+          </button>
+          <h2 id="detail-title" class="text-2xl md:text-4xl font-black text-white uppercase tracking-wide truncate">Danh mục</h2>
+          <div class="mt-3">
+            <div class="flex items-center gap-3 text-xs text-gray-400">
+              <span id="detail-count">0 bài</span>
+              <span class="opacity-50">•</span>
+              <span id="detail-progress-text">0% hoàn thành (0/0)</span>
+            </div>
+            <div class="mt-2 h-2 rounded-full bg-white/5 overflow-hidden border border-white/10">
+              <div id="detail-progress-bar" class="h-full bg-primary w-0 transition-all duration-300" style="width: 0%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-2">
+          <div class="relative flex-1">
+            <i class="fas fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"></i>
+            <input id="inp-search" oninput="renderList(currentCat)" placeholder="Tìm bài theo tiêu đề..." class="w-full pl-9 pr-3 py-3 bg-white/5 border border-white/10 rounded-2xl outline-none focus:border-primary/60 text-sm">
+          </div>
+
+          <button onclick="openAddModal()" class="admin-only bg-primary hover:bg-primaryDark text-white px-5 py-3 rounded-2xl font-black shadow-lg transition flex items-center justify-center gap-2 text-sm whitespace-nowrap">
+            <i class="fas fa-plus"></i> Thêm Bài
+          </button>
+        </div>
+      </div>
+
+      <div id="detail-list" class="space-y-4"></div>
+
+      <div id="empty-msg" class="hidden text-center py-20 opacity-60">
+        <i class="fas fa-folder-open text-6xl mb-4 text-gray-700"></i>
+        <p class="text-gray-500">Chưa có bài nào. Admin vào thêm phát là cháy ngay.</p>
+      </div>
+    </section>
+
+    <!-- FAVORITES -->
+    <section id="page-favorites" class="page-section container mx-auto px-4 py-10 max-w-4xl">
+      <div class="flex items-end justify-between mb-6 border-b border-white/10 pb-4">
+        <div>
+          <button onclick="switchPage('home')" class="text-gray-400 hover:text-primary text-xs font-bold uppercase mb-2 flex items-center gap-1">
+            <i class="fas fa-arrow-left"></i> Trang chủ
+          </button>
+          <h2 class="text-2xl md:text-4xl font-black uppercase tracking-wide">
+            <i class="fas fa-bookmark text-primary mr-2"></i>Yêu thích
+          </h2>
+          <p class="text-gray-400 text-sm mt-2">Mấy bài bạn ⭐ sẽ nằm hết ở đây. “Save là thắng”.</p>
+        </div>
+        <button onclick="clearFavorites()" class="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 transition text-xs font-bold text-gray-300 border border-white/10">
+          Xóa hết
+        </button>
+      </div>
+
+      <div id="fav-list" class="space-y-4"></div>
+
+      <div id="fav-empty" class="hidden text-center py-20 opacity-60">
+        <i class="fas fa-star text-6xl mb-4 text-gray-700"></i>
+        <p class="text-gray-500">Chưa có bài nào được ⭐. Đi lướt bài rồi lưu lại nha.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-black/40 border-t border-white/10 py-8 mt-auto backdrop-blur">
+    <div class="container mx-auto px-4 flex flex-col sm:flex-row gap-4 justify-between items-center">
+      <div class="text-xs text-gray-500 font-bold">© 2025 UEIH CASIO. Built with calculator energy.</div>
+      <div class="flex gap-6">
+        <a id="social-fb" href="#" target="_blank" class="text-gray-400 hover:text-blue-500 text-xl transition transform hover:scale-110"><i class="fab fa-facebook"></i></a>
+        <a id="social-tt" href="#" target="_blank" class="text-gray-400 hover:text-white text-xl transition transform hover:scale-110"><i class="fab fa-tiktok"></i></a>
+        <a id="social-yt" href="#" target="_blank" class="text-gray-400 hover:text-red-500 text-xl transition transform hover:scale-110"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- floating admin quick menu -->
+  <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+    <div id="admin-menu" class="hidden bg-cardBg border border-primary/30 p-3 rounded-2xl soft-shadow w-72">
+      <div class="text-[10px] font-black text-primary uppercase mb-2 tracking-widest border-b border-white/10 pb-1">Admin Mode</div>
+      <button onclick="openConfigModal()" class="w-full text-left px-3 py-2 hover:bg-white/5 rounded-xl text-sm text-gray-300 hover:text-white">
+        <i class="fas fa-pen w-5 text-primary"></i> Sửa giao diện
+      </button>
+      <button onclick="openHomeCardsModal()" class="w-full text-left px-3 py-2 hover:bg-white/5 rounded-xl text-sm text-gray-300 hover:text-white">
+        <i class="fas fa-wand-magic-sparkles w-5 text-yellow-400"></i> Sửa card Trang chủ
+      </button>
+      <button onclick="exportHTML()" class="w-full text-left px-3 py-2 hover:bg-white/5 rounded-xl text-sm text-gray-300 hover:text-white">
+        <i class="fas fa-file-export w-5 text-green-500"></i> Export web (HTML)
+      </button>
+      <button onclick="resetLocal()" class="w-full text-left px-3 py-2 hover:bg-white/5 rounded-xl text-sm text-gray-300 hover:text-white">
+        <i class="fas fa-rotate-left w-5 text-gray-300"></i> Reset dữ liệu máy
+      </button>
+      <button onclick="logoutAdmin()" class="w-full text-left px-3 py-2 hover:bg-red-900/20 rounded-xl text-sm text-red-400 hover:text-red-300">
+        <i class="fas fa-right-from-bracket w-5"></i> Thoát
+      </button>
+      <div class="mt-2 text-[11px] text-gray-500 leading-snug">
+        Lưu ý: admin password nằm trong code nên chỉ “khóa UI” thôi, không phải bảo mật real.
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div id="toast-wrap" class="fixed top-4 right-4 z-[200] space-y-2"></div>
+
+  <!-- MODALS -->
+  <div id="add-modal" class="fixed inset-0 bg-black/80 z-[100] hidden items-center justify-center backdrop-blur-sm">
+    <div class="bg-cardBg p-6 rounded-2xl w-full max-w-md border border-white/10 soft-shadow animate-pop max-h-[90vh] overflow-y-auto">
+      <h3 id="modal-title" class="text-xl font-black text-white mb-4">Thêm Bài Mới</h3>
+      <div class="space-y-4">
+        <input type="text" id="inp-title" class="w-full p-3 bg-white/5 border border-white/10 rounded-2xl focus:border-primary outline-none text-white" placeholder="Tiêu đề bài học">
+        
+        <div>
+          <label id="lbl-link1" class="text-xs font-bold text-gray-400 block mb-1 uppercase">Link chính</label>
+          <input type="text" id="inp-link" class="w-full p-3 bg-white/5 border border-white/10 rounded-2xl focus:border-primary outline-none text-white" placeholder="URL...">
+        </div>
+
+        <div id="div-link-giai">
+           <label id="lbl-link2" class="text-xs font-bold text-gray-400 block mb-1 uppercase">Link phụ</label>
+          <input type="text" id="inp-link-giai" class="w-full p-3 bg-white/5 border border-white/10 rounded-2xl focus:border-green-500 outline-none text-white" placeholder="URL...">
+        </div>
+
+        <input type="text" id="inp-desc" class="w-full p-3 bg-white/5 border border-white/10 rounded-2xl focus:border-primary outline-none text-white" placeholder="Mô tả ngắn">
+
+        <!-- New Meta Fields -->
+        <div class="grid grid-cols-1 gap-3">
+          <div>
+            <label class="text-xs font-bold text-gray-400 block mb-1 uppercase">Mức độ Skill</label>
+            <select id="inp-level" class="w-full p-3 bg-white/5 border border-white/10 rounded-2xl focus:border-primary outline-none text-white appearance-none">
+              <option value="">-- Chọn mức độ --</option>
+              <option value="Cơ Bản">Cơ Bản</option>
+              <option value="Vận Dụng">Vận Dụng</option>
+              <option value="Mạnhhh">Mạnhhh</option>
+              <option value="Vip">Vip</option>
+            </select>
+          </div>
+          
+          <div>
+            <label class="text-xs font-bold text-gray-400 block mb-1 uppercase">Dành cho (Đa chọn)</label>
+            <div class="flex flex-wrap gap-2">
+              <label class="inline-flex items-center p-2 rounded-xl bg-white/5 border border-white/10 cursor-pointer select-none">
+                <input type="checkbox" class="chk-target w-4 h-4 accent-primary mr-2" value="TSA"> TSA
+              </label>
+              <label class="inline-flex items-center p-2 rounded-xl bg-white/5 border border-white/10 cursor-pointer select-none">
+                <input type="checkbox" class="chk-target w-4 h-4 accent-green-500 mr-2" value="HSA"> HSA
+              </label>
+              <label class="inline-flex items-center p-2 rounded-xl bg-white/5 border border-white/10 cursor-pointer select-none">
+                <input type="checkbox" class="chk-target w-4 h-4 accent-blue-500 mr-2" value="THPTQG"> THPTQG
+              </label>
+              <label class="inline-flex items-center p-2 rounded-xl bg-white/5 border border-white/10 cursor-pointer select-none">
+                <input type="checkbox" class="chk-target w-4 h-4 accent-purple-500 mr-2" value="VACT"> VACT
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 bg-yellow-500/10 p-3 rounded-2xl border border-yellow-500/20 cursor-pointer" onclick="document.getElementById('inp-draft').click()">
+          <input type="checkbox" id="inp-draft" class="w-5 h-5 accent-yellow-500 cursor-pointer">
+          <label class="block text-sm font-bold text-yellow-500 cursor-pointer">Chế độ Nháp (học sinh thấy bị khóa)</label>
+        </div>
+
+        <input type="hidden" id="inp-cat-hidden">
+        <input type="hidden" id="inp-edit-id">
+        <div class="flex gap-2">
+          <button onclick="closeModal('add-modal')" class="flex-1 py-3 bg-white/5 hover:bg-white/10 text-white font-bold rounded-2xl">Hủy</button>
+          <button onclick="saveLesson()" class="flex-1 py-3 bg-primary hover:bg-primaryDark text-white font-black rounded-2xl">Lưu Bài</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="password-modal" class="fixed inset-0 bg-black/85 z-[110] items-center justify-center hidden">
+    <div class="bg-cardBg p-8 rounded-2xl w-full max-w-sm border border-primary/30 soft-shadow animate-pop">
+      <h3 class="text-xl font-black text-primary text-center mb-6 uppercase tracking-widest">Admin Access</h3>
+      <input type="password" id="admin-pass" class="w-full p-3 bg-white/5 border border-white/10 rounded-2xl text-center text-white focus:border-primary outline-none mb-3" placeholder="PASSWORD">
+      <button onclick="checkPassword()" class="w-full py-3 bg-primary hover:bg-primaryDark text-white font-black rounded-2xl transition">MỞ KHÓA</button>
+      <button onclick="closeModal('password-modal')" class="w-full py-2 mt-2 text-gray-400 text-xs font-bold hover:text-white">QUAY LẠI</button>
+    </div>
+  </div>
+
+  <div id="config-modal" class="fixed inset-0 bg-black/80 z-[110] hidden items-center justify-center backdrop-blur-sm">
+    <div class="bg-cardBg p-6 rounded-2xl w-full max-w-md border border-white/10 soft-shadow animate-pop">
+      <h3 class="text-xl font-black text-primary mb-4">Cài Đặt Giao Diện</h3>
+      <div class="space-y-4">
+        <div>
+          <label class="text-xs font-bold text-gray-500 uppercase">Link Avatar</label>
+          <input type="text" id="cfg-avatar" class="w-full p-3 bg-white/5 border border-white/10 rounded-2xl text-white outline-none focus:border-primary/60">
+        </div>
+        <div>
+          <label class="text-xs font-bold text-gray-500 uppercase">Tên Web</label>
+          <input type="text" id="cfg-logo-text" class="w-full p-3 bg-white/5 border border-white/10 rounded-2xl text-white outline-none focus:border-primary/60">
+        </div>
+        <div>
+          <label class="text-xs font-bold text-gray-500 uppercase">Slogan</label>
+          <input type="text" id="cfg-slogan" class="w-full p-3 bg-white/5 border border-white/10 rounded-2xl text-white outline-none focus:border-primary/60">
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+          <div class="sm:col-span-3 text-xs font-bold text-gray-500 uppercase mt-2">Social links</div>
+          <input type="text" id="cfg-fb" placeholder="Facebook URL" class="p-3 bg-white/5 border border-white/10 rounded-2xl text-white outline-none focus:border-primary/60">
+          <input type="text" id="cfg-tt" placeholder="TikTok URL" class="p-3 bg-white/5 border border-white/10 rounded-2xl text-white outline-none focus:border-primary/60">
+          <input type="text" id="cfg-yt" placeholder="YouTube URL" class="p-3 bg-white/5 border border-white/10 rounded-2xl text-white outline-none focus:border-primary/60">
+        </div>
+
+        <div class="flex gap-2 pt-2">
+          <button onclick="saveConfig()" class="flex-1 py-3 bg-primary hover:bg-primaryDark text-white font-black rounded-2xl">Cập Nhật</button>
+          <button onclick="closeModal('config-modal')" class="flex-1 py-3 bg-white/5 hover:bg-white/10 text-white font-bold rounded-2xl">Hủy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="homecards-modal" class="fixed inset-0 bg-black/80 z-[120] hidden items-center justify-center backdrop-blur-sm">
+    <div class="bg-cardBg p-6 rounded-2xl w-full max-w-2xl border border-white/10 soft-shadow animate-pop max-h-[82vh] overflow-y-auto">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-xl font-black text-yellow-400">Sửa Card Trang chủ</h3>
+        <button onclick="closeModal('homecards-modal')" class="w-9 h-9 rounded-xl bg-white/5 hover:bg-white/10 transition flex items-center justify-center">
+          <i class="fas fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="text-xs text-gray-400 mb-4">Mỗi card: icon FontAwesome (vd: <span class="font-bold">fa-bolt</span>), title, desc.</div>
+
+      <div id="homecards-editor" class="space-y-3"></div>
+
+      <div class="flex gap-2 mt-5">
+        <button onclick="addHomeCard()" class="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-sm font-bold">+ Thêm card</button>
+        <button onclick="saveHomeCards()" class="flex-1 py-2 rounded-xl bg-yellow-500 hover:bg-yellow-400 text-black font-black">Lưu card</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // =========================
+    // STATE (localStorage)
+    // =========================
+    const LS = {
+      theme: 'ueih_theme',
+      config: 'ueih_siteConfig',
+      db: 'ueih_database',
+      fav: 'ueih_favs',
+      done: 'ueih_done',
+      homeCards: 'ueih_homecards'
+    };
+
+    // Default config
+    let siteConfig = {"avatar":"https://scontent.fhan20-1.fna.fbcdn.net/v/t39.30808-6/555733813_810835077974194_4101748610057312325_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHDTdYqWdNFRjU8d2r5jAhjebOdWmQ9kbF5s51aZD2RsVt3gAla-o2NSldRE2u4LlyamgEm9bbvjTd0fQAskB83&_nc_ohc=j7pYsq1YFBIQ7kNvwGqVswS&_nc_oc=Adlz2s1APpaob9-hqj_UUypHn8eLkWbC-8zRqetZZ8lreC3w1g2GCzKFBPN2XtBmeX0&_nc_zt=23&_nc_ht=scontent.fhan20-1.fna&_nc_gid=kLhRTL2MoYzPK4ngUv-7zA&oh=00_AflDQh0Z0RhjS2cSJvz5BRhWHcCxjtV7wKug-AHH5fEuuA&oe=6958839A","logoText":"Ueih Casio","slogan":"Casio Lẹ Lẹ Rồi Chuyển Câu Thoi🐣","social":{"fb":"https://www.facebook.com/ueih.7ron","tt":"https://www.tiktok.com/@ueih.ron1609","yt":"https://youtube.com"}};
+
+    // Home cards (editable)
+    let homeCards = [{"icon":"fa-bolt","color":"text-blue-400","bg":"bg-blue-900/30","border":"hover:border-blue-500/50","title":"Tốc Độ Ánh Sáng","desc":"Phương pháp bấm máy giúp tiết kiệm 70% thời gian làm bài."},{"icon":"fa-brain","color":"text-purple-400","bg":"bg-purple-900/30","border":"hover:border-purple-500/50","title":"Tư Duy Casio","desc":"Không chỉ là bấm máy, mà là tư duy giải toán trắc nghiệm."},{"icon":"fa-fire","color":"text-yellow-400","bg":"bg-yellow-900/30","border":"hover:border-yellow-500/50","title":"Độc Quyền Ueih","desc":"Các tuyệt chiêu chỉ được chia sẻ nội bộ tại đây."}];
+
+    const categories = {
+      'casio-so-hoc': "Số Học ",
+      'casio-ham-so': "Hàm Số & Đồ Thị",
+      'casio-giai-tich': "Giải Tích",
+      'casio-hinh-hoc': "Hình Học Oxyz",
+      'casio-xac-suat': "Xác Suất & Tổ Hợp",
+      'casio-hay-la': "Các Bài Toán Hay & Lạ",
+
+      'casio-880-so-hoc': "880 • Số Học ",
+      'casio-880-ham-so': "880 • Hàm Số & Đồ Thị",
+      'casio-880-giai-tich': "880 • Giải Tích",
+      'casio-880-hinh-hoc': "880 • Hình Học Oxyz",
+      'casio-880-xac-suat': "880 • Xác Suất & Tổ Hợp",
+      'casio-880-hay-la': "880 • Các Bài Toán Hay & Lạ",
+      'exam-tsa': "Luyện Đề TSA",
+      'exam-hsa': "Luyện Đề HSA",
+      'exam-thpt': "Đề THPT Quốc Gia",
+      'exam-vact': "Đề VACT"
+    };
+
+    // Default database
+    let database = [{"id":1767035091741,"cat":"casio-so-hoc","title":"Số chữ số 0 tận cùng của n!","link":"https://drive.google.com/file/d/11TN3XA3fOqT4D6eJGInXgk98t_7iSzVs/view?usp=drivesdk","linkGiai":"","desc":"Mẹo tính nhanh","status":"published","level":"Cơ Bản","targets":["TSA","VACT"]}];
+
+    let currentCat = '';
+    let isAdmin = false;
+    let favorites = new Set();
+    let doneMap = {};
+
+    // =========================
+    // HELPERS
+    // =========================
+    function safeParse(json, fallback) {
+      try { return JSON.parse(json); } catch (e) { return fallback; }
+    }
+
+    function toast(msg, type='info') {
+      const wrap = document.getElementById('toast-wrap');
+      const div = document.createElement('div');
+      const base = "px-4 py-3 rounded-2xl border text-sm font-bold shadow-lg animate-pop";
+      const style = {
+        info: "bg-cardBg/90 border-white/10 text-gray-200",
+        ok: "bg-green-900/30 border-green-500/30 text-green-200",
+        warn: "bg-yellow-900/30 border-yellow-500/30 text-yellow-200",
+        err: "bg-red-900/30 border-red-500/30 text-red-200"
+      }[type] || "bg-cardBg/90 border-white/10 text-gray-200";
+      div.className = base + " " + style;
+      div.innerHTML = `<div class="flex items-center gap-2"><i class="fas ${type==='ok'?'fa-circle-check':type==='err'?'fa-triangle-exclamation':type==='warn'?'fa-circle-exclamation':'fa-circle-info'}"></i><span>${msg}</span></div>`;
+      wrap.appendChild(div);
+      setTimeout(() => { div.style.opacity = 0; div.style.transform = 'translateY(-6px)'; }, 2200);
+      setTimeout(() => { div.remove(); }, 2600);
+    }
+
+    function openDrawer() {
+      document.getElementById('drawer-overlay').classList.remove('hidden');
+      requestAnimationFrame(() => document.getElementById('drawer').classList.add('open'));
+    }
+    function closeDrawer() {
+      document.getElementById('drawer').classList.remove('open');
+      setTimeout(() => document.getElementById('drawer-overlay').classList.add('hidden'), 200);
+    }
+
+    // =========================
+    // THEME
+    // =========================
+    function applyTheme(theme) {
+      const root = document.documentElement;
+      if(theme === 'light') root.classList.remove('dark');
+      else root.classList.add('dark');
+      document.getElementById('theme-ico').className = (theme === 'light') ? 'fas fa-sun' : 'fas fa-moon';
+    }
+    function toggleTheme() {
+      const cur = localStorage.getItem(LS.theme) || 'dark';
+      const next = cur === 'dark' ? 'light' : 'dark';
+      localStorage.setItem(LS.theme, next);
+      applyTheme(next);
+      toast(next === 'light' ? 'Bật Light mode ✨' : 'Bật Dark mode 🌙', 'ok');
+    }
+
+    // =========================
+    // LOAD/SAVE
+    // =========================
+    function loadState() {
+      const theme = localStorage.getItem(LS.theme) || 'dark';
+      applyTheme(theme);
+
+      const cfg = localStorage.getItem(LS.config);
+      if(cfg) siteConfig = {...siteConfig, ...safeParse(cfg, siteConfig)};
+
+      const db = localStorage.getItem(LS.db);
+      if(db) database = safeParse(db, database);
+
+      const fav = localStorage.getItem(LS.fav);
+      if(fav) favorites = new Set(safeParse(fav, []));
+
+      const done = localStorage.getItem(LS.done);
+      if(done) doneMap = safeParse(done, {});
+
+      const hc = localStorage.getItem(LS.homeCards);
+      if(hc) homeCards = safeParse(hc, homeCards);
+    }
+
+    function saveState() {
+      localStorage.setItem(LS.config, JSON.stringify(siteConfig));
+      localStorage.setItem(LS.db, JSON.stringify(database));
+      localStorage.setItem(LS.fav, JSON.stringify([...favorites]));
+      localStorage.setItem(LS.done, JSON.stringify(doneMap));
+      localStorage.setItem(LS.homeCards, JSON.stringify(homeCards));
+    }
+
+    function resetLocal() {
+      if(!confirm("Reset localStorage? (sẽ mất dữ liệu đã lưu trên máy)")) return;
+      Object.values(LS).forEach(k => localStorage.removeItem(k));
+      toast("Đã reset dữ liệu máy. Refresh trang là về mặc định.", "warn");
+    }
+
+    // =========================
+    // RENDER CONFIG + HOME CARDS
+    // =========================
+    function renderConfig() {
+      document.getElementById('nav-avatar').src = siteConfig.avatar;
+      document.getElementById('home-avatar-big').src = siteConfig.avatar;
+      document.getElementById('nav-text').innerText = siteConfig.logoText;
+      document.getElementById('home-slogan').innerText = siteConfig.slogan;
+
+      document.getElementById('cfg-avatar').value = siteConfig.avatar;
+      document.getElementById('cfg-logo-text').value = siteConfig.logoText;
+      document.getElementById('cfg-slogan').value = siteConfig.slogan;
+
+      document.getElementById('cfg-fb').value = siteConfig.social.fb || '';
+      document.getElementById('cfg-tt').value = siteConfig.social.tt || '';
+      document.getElementById('cfg-yt').value = siteConfig.social.yt || '';
+
+      document.getElementById('social-fb').href = siteConfig.social.fb || '#';
+      document.getElementById('social-tt').href = siteConfig.social.tt || '#';
+      document.getElementById('social-yt').href = siteConfig.social.yt || '#';
+    }
+
+    function renderHomeCards() {
+      const anchor = document.getElementById('home-cards-anchor');
+      const parent = anchor.parentElement;
+      [...parent.children].forEach(ch => { if(ch !== anchor) ch.remove(); });
+
+      homeCards.forEach((c) => {
+        const div = document.createElement('div');
+        div.className = `bg-cardBg border border-white/10 p-6 rounded-2xl ${c.border || 'hover:border-primary/50'} transition duration-300 group cursor-default`;
+        div.innerHTML = `
+          <div class="w-12 h-12 rounded-xl ${c.bg || 'bg-primary/20'} ${c.color || 'text-primary'} flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition">
+            <i class="fas ${c.icon || 'fa-star'}"></i>
+          </div>
+          <h3 class="font-black text-lg mb-2 text-white">${escapeHtml(c.title || '')}</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">${escapeHtml(c.desc || '')}</p>
+        `;
+        parent.insertBefore(div, anchor);
+      });
+    }
+
+    function escapeHtml(str) {
+      return (str ?? '').toString()
+        .replaceAll('&','&amp;').replaceAll('<','&lt;')
+        .replaceAll('>','&gt;').replaceAll('"','&quot;')
+        .replaceAll("'","&#039;");
+    }
+
+    // =========================
+    // NAV + PAGES
+    // =========================
+    function switchPage(pageId) {
+      document.querySelectorAll('.page-section').forEach(el => el.classList.remove('active'));
+
+      if(pageId === 'home') {
+        document.getElementById('page-home').classList.add('active');
+        currentCat = '';
+      } else if(pageId === 'favorites') {
+        currentCat = 'favorites';
+        renderFavorites();
+        document.getElementById('page-favorites').classList.add('active');
+      } else {
+        currentCat = pageId;
+        document.getElementById('detail-title').innerText = categories[pageId] || 'Danh mục';
+        document.getElementById('inp-search').value = '';
+        renderList(pageId);
+        document.getElementById('page-detail').classList.add('active');
+      }
+      document.getElementById('admin-menu').classList.add('hidden');
+      window.scrollTo({top:0, behavior:'smooth'});
+    }
+
+    // =========================
+    // FAVORITES + DONE
+    // =========================
+    function toggleFav(id) {
+      if(favorites.has(id)) favorites.delete(id);
+      else favorites.add(id);
+      saveState();
+      toast(favorites.has(id) ? 'Đã ⭐ bài này!' : 'Đã bỏ ⭐', 'ok');
+      if(currentCat === 'favorites') renderFavorites();
+      else if(currentCat) renderList(currentCat);
+    }
+
+    function toggleDone(id) {
+      doneMap[id] = !doneMap[id];
+      if(!doneMap[id]) delete doneMap[id];
+      saveState();
+      toast(doneMap[id] ? '✅ Đánh dấu đã học' : '↩️ Bỏ đánh dấu', 'info');
+      if(currentCat === 'favorites') renderFavorites();
+      else if(currentCat) renderList(currentCat);
+    }
+
+    function clearFavorites() {
+      if(!confirm("Xóa hết bài yêu thích?")) return;
+      favorites = new Set();
+      saveState();
+      renderFavorites();
+      toast("Đã xóa hết ⭐", "warn");
+    }
+
+    // =========================
+    // RENDER LIST
+    // =========================
+    function getLevelBadge(level) {
+      if(!level) return '';
+      let cls = 'badge-level-basic';
+      if(level === 'Vận Dụng') cls = 'badge-level-apply';
+      if(level === 'Mạnhhh') cls = 'badge-level-strong';
+      if(level === 'Vip') cls = 'badge-level-vip';
+      return `<span class="${cls} text-[10px] font-bold px-2 py-0.5 rounded-lg border ml-2">${level}</span>`;
+    }
+
+    function getTargetBadges(targets) {
+      if(!Array.isArray(targets) || targets.length === 0) return '';
+      return targets.map(t => `<span class="badge-target">${t}</span>`).join(' ');
+    }
+
+    function computeProgress(catId) {
+      const visibleToStudents = database.filter(i => i.cat === catId && i.status !== 'draft');
+      const total = visibleToStudents.length;
+      const done = visibleToStudents.filter(i => !!doneMap[i.id]).length;
+      const pct = total === 0 ? 0 : Math.round(done * 100 / total);
+      return { total, done, pct };
+    }
+
+    function renderDetailMeta(catId, itemsShown) {
+      const { total, done, pct } = computeProgress(catId);
+      document.getElementById('detail-count').innerText = `${itemsShown} bài`;
+      document.getElementById('detail-progress-text').innerText = `${pct}% hoàn thành (${done}/${total})`;
+      document.getElementById('detail-progress-bar').style.width = `${pct}%`;
+    }
+
+    function renderList(catId) {
+      const list = document.getElementById('detail-list');
+      const empty = document.getElementById('empty-msg');
+      const q = (document.getElementById('inp-search').value || '').trim().toLowerCase();
+
+      list.innerHTML = '';
+      let items = database.filter(i => i.cat === catId);
+      const isExam = catId.startsWith('exam-');
+      const isCasio = catId.startsWith('casio-');
+
+      if(q) items = items.filter(i => (i.title || '').toLowerCase().includes(q) || (i.desc || '').toLowerCase().includes(q));
+      items.sort((a,b) => (a.status === 'draft') - (b.status === 'draft'));
+
+      if(items.length === 0) empty.classList.remove('hidden');
+      else empty.classList.add('hidden');
+
+      renderDetailMeta(catId, items.length);
+
+      items.forEach(item => {
+        const isDraft = (item.status === 'draft');
+        const isLocked = isDraft && !isAdmin;
+
+        let cardClass = isLocked
+          ? "bg-white/5 border border-dashed border-white/20 p-5 rounded-2xl flex flex-col md:flex-row items-start md:items-center gap-4 locked-item relative"
+          : "bg-cardBg border border-white/10 hover:border-primary/50 p-5 rounded-2xl flex flex-col md:flex-row items-start md:items-center gap-4 transition group relative";
+        
+        if(isAdmin && isDraft) cardClass = "bg-yellow-900/10 border border-dashed border-yellow-500/50 p-5 rounded-2xl flex flex-col md:flex-row gap-4 relative";
+
+        const favOn = favorites.has(item.id);
+        const doneOn = !!doneMap[item.id];
+        const badge = isDraft ? `<span class="ml-2 px-2 py-0.5 rounded text-[10px] font-black bg-yellow-500 text-black">NHÁP</span>` : "";
+        const doneBadge = doneOn ? `<span class="ml-2 px-2 py-0.5 rounded text-[10px] font-black bg-green-500 text-black">DONE</span>` : "";
+        
+        let buttonsHTML = '';
+        if(isLocked) {
+          buttonsHTML = `<div class="text-gray-500 text-sm italic"><i class="fas fa-lock mr-1"></i> Coming Soon</div>`;
+        } else if (isExam || isCasio) {
+          const btn1Label = isCasio ? 'Xem' : 'Đề';
+          const btn1Icon = isCasio ? 'fa-play' : 'fa-file-alt';
+          const btn2Label = isCasio ? 'Luyện' : 'Chữa';
+          const btn2Icon = isCasio ? 'fa-dumbbell' : 'fa-video';
+          const link2 = item.linkGiai || '#';
+          const hasLink2 = item.linkGiai && item.linkGiai.length > 1;
+
+          buttonsHTML = `
+            <div class="flex gap-2 w-full md:w-auto mt-2 md:mt-0">
+              <a href="${item.link}" target="_blank" class="flex-1 md:flex-none px-4 py-2 bg-white/10 hover:bg-white/20 text-white text-xs font-black rounded-xl uppercase tracking-wider text-center transition">
+                <i class="fas ${btn1Icon} mr-1"></i> ${btn1Label}
+              </a>
+              ${ (isExam || (isCasio && hasLink2)) ? `
+              <a href="${link2}" target="_blank" class="flex-1 md:flex-none px-4 py-2 bg-primary hover:bg-primaryDark text-white text-xs font-black rounded-xl uppercase tracking-wider text-center transition ${!hasLink2 ? 'opacity-50 pointer-events-none':''}">
+                <i class="fas ${btn2Icon} mr-1"></i> ${btn2Label}
+              </a>
+              ` : '' }
+            </div>
+          `;
+        } else {
+          // fallback default single click
+          cardClass += " cursor-pointer";
+        }
+
+        const clickAttr = (!isExam && !isCasio && !isLocked) ? `onclick="window.open('${item.link}', '_blank')"` : "";
+
+        // Meta tags rendering
+        const levelBadge = getLevelBadge(item.level);
+        const targetBadges = getTargetBadges(item.targets);
+
+        const html = `
+          <div class="${cardClass}" ${clickAttr}>
+            <div class="w-11 h-11 rounded-2xl bg-white/5 flex items-center justify-center shrink-0 ${!isLocked ? 'group-hover:bg-primary transition' : ''}">
+              ${isLocked ? '<i class="fas fa-lock text-sm text-gray-500"></i>' : '<i class="fas fa-play text-xs text-white"></i>'}
+            </div>
+
+            <div class="flex-grow min-w-0 w-full">
+              <h3 class="font-black text-gray-200 ${!isLocked ? 'group-hover:text-white' : ''} text-base transition flex flex-wrap items-center">
+                ${escapeHtml(item.title)} ${badge} ${doneBadge} ${levelBadge}
+              </h3>
+              <p class="text-sm text-gray-400 ${isLocked ? 'opacity-70' : ''} mb-1">${escapeHtml(item.desc || '')}</p>
+              
+              <div class="flex flex-wrap gap-1 mb-2">${targetBadges}</div>
+
+              <div class="mt-2 flex flex-wrap gap-2 ${isLocked ? 'hidden' : ''}">
+                <button onclick="event.stopPropagation(); toggleFav(${item.id})"
+                  class="px-3 py-2 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition text-xs font-black flex items-center gap-2">
+                  <i class="fas ${favOn ? 'fa-star text-yellow-400' : 'fa-star text-gray-400'}"></i>
+                  ${favOn ? 'Đã lưu' : 'Lưu'}
+                </button>
+
+                <button onclick="event.stopPropagation(); toggleDone(${item.id})"
+                  class="px-3 py-2 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition text-xs font-black flex items-center gap-2">
+                  <i class="fas ${doneOn ? 'fa-circle-check text-green-400' : 'fa-circle'}"></i>
+                  ${doneOn ? 'Đã học' : 'Đánh dấu'}
+                </button>
+              </div>
+            </div>
+
+            ${buttonsHTML}
+
+            <div class="admin-only absolute top-3 right-3 flex gap-2">
+               <button onclick="event.stopPropagation(); editLesson(${item.id})" class="w-8 h-8 rounded-lg bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 flex items-center justify-center transition" title="Sửa">
+                <i class="fas fa-pen text-xs"></i>
+              </button>
+              <button onclick="event.stopPropagation(); deleteLesson(${item.id})" class="w-8 h-8 rounded-lg bg-red-500/10 hover:bg-red-500/20 text-red-400 flex items-center justify-center transition" title="Xóa">
+                <i class="fas fa-trash-alt text-xs"></i>
+              </button>
+            </div>
+          </div>
+        `;
+        list.innerHTML += html;
+      });
+    }
+
+    // =========================
+    // FAVORITES RENDER
+    // =========================
+    function renderFavorites() {
+      const list = document.getElementById('fav-list');
+      const empty = document.getElementById('fav-empty');
+      list.innerHTML = '';
+
+      const favItems = database.filter(i => favorites.has(i.id) && (i.status !== 'draft' || isAdmin));
+      if(favItems.length === 0) {
+        empty.classList.remove('hidden');
+        return;
+      }
+      empty.classList.add('hidden');
+
+      favItems.forEach(item => {
+        const isExam = item.cat.startsWith('exam-');
+        const isCasio = item.cat.startsWith('casio-');
+        const doneOn = !!doneMap[item.id];
+        const link2 = item.linkGiai || '#';
+        const hasLink2 = item.linkGiai && item.linkGiai.length > 1;
+
+        let btnHTML = '';
+        if (isExam || isCasio) {
+            const l1 = isCasio ? 'Xem' : 'Đề';
+            const l2 = isCasio ? 'Luyện' : 'Chữa';
+            btnHTML = `
+             <a href="${item.link}" target="_blank" class="px-3 py-2 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition text-xs font-black"><i class="fas fa-external-link-alt mr-1"></i> ${l1}</a>
+             ${hasLink2 ? `<a href="${link2}" target="_blank" class="px-3 py-2 rounded-xl bg-primary hover:bg-primaryDark transition text-xs font-black"><i class="fas fa-play mr-1"></i> ${l2}</a>` : ''}
+            `;
+        } else {
+             btnHTML = `<a href="${item.link}" target="_blank" class="px-3 py-2 rounded-xl bg-primary hover:bg-primaryDark transition text-xs font-black"><i class="fas fa-play mr-1"></i> Mở bài</a>`;
+        }
+
+        const html = `
+          <div class="bg-cardBg border border-white/10 hover:border-primary/50 p-5 rounded-2xl transition group relative">
+            <div class="flex items-start gap-4">
+              <div class="w-11 h-11 rounded-2xl bg-white/5 group-hover:bg-primary transition flex items-center justify-center shrink-0">
+                <i class="fas fa-bookmark text-white text-sm"></i>
+              </div>
+              <div class="flex-grow min-w-0">
+                <div class="text-xs text-gray-400 font-bold uppercase tracking-widest">${escapeHtml(categories[item.cat] || item.cat)}</div>
+                <h3 class="font-black text-white mt-1">${escapeHtml(item.title)} ${getLevelBadge(item.level)}</h3>
+                <p class="text-sm text-gray-400 mt-1">${escapeHtml(item.desc || '')}</p>
+                <div class="mt-1">${getTargetBadges(item.targets)}</div>
+
+                <div class="mt-3 flex flex-wrap gap-2">
+                  <button onclick="toggleFav(${item.id})" class="px-3 py-2 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition text-xs font-black flex items-center gap-2">
+                    <i class="fas fa-star text-yellow-400"></i> Bỏ lưu
+                  </button>
+                  <button onclick="toggleDone(${item.id})" class="px-3 py-2 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition text-xs font-black flex items-center gap-2">
+                    <i class="fas ${doneOn ? 'fa-circle-check text-green-400' : 'fa-circle'}"></i>
+                    ${doneOn ? 'Đã học' : 'Đánh dấu'}
+                  </button>
+                  ${btnHTML}
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+        list.innerHTML += html;
+      });
+    }
+
+    // =========================
+    // ADMIN
+    // =========================
+    function requestAdmin() { isAdmin ? toggleAdminMenu() : openModal('password-modal'); }
+    function toggleAdminMenu() { document.getElementById('admin-menu').classList.toggle('hidden'); }
+
+    function checkPassword() {
+      const pass = (document.getElementById('admin-pass').value || '').trim();
+      // SHA-256 for basic check
+      async function sha256Hex(str) {
+        const enc = new TextEncoder().encode(str);
+        const buf = await window.crypto.subtle.digest('SHA-256', enc);
+        return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+      }
+      sha256Hex(pass).then(hash => {
+        if(hash === "eac63159e8c153a78d0598cf6726d8500119ad7d3ef2e2489da56eb7127d06df") {
+          isAdmin = true;
+          document.body.classList.add('admin-mode');
+          document.getElementById('admin-indicator').classList.add('bg-green-500');
+          document.getElementById('admin-indicator').classList.remove('hidden');
+          document.getElementById('btn-admin').classList.add('text-primary', 'border-primary');
+          document.getElementById('admin-menu').classList.remove('hidden');
+          closeModal('password-modal');
+          toast("🔓 Admin Access Granted!", "ok");
+          if(currentCat && currentCat !== 'favorites') renderList(currentCat);
+        } else {
+          toast("Sai password rồi 😅", "err");
+        }
+      }).catch(e => toast("Lỗi crypto browser", "err"));
+      document.getElementById('admin-pass').value = '';
+    }
+
+    function logoutAdmin() {
+      isAdmin = false;
+      document.body.classList.remove('admin-mode');
+      document.getElementById('admin-menu').classList.add('hidden');
+      document.getElementById('admin-indicator').classList.remove('bg-green-500');
+      document.getElementById('btn-admin').classList.remove('text-primary', 'border-primary');
+      toast("🔒 Logged out.", "warn");
+      if(currentCat && currentCat !== 'favorites') renderList(currentCat);
+    }
+
+    // =========================
+    // MODALS & CRUD
+    // =========================
+    function closeModal(id) { document.getElementById(id).classList.add('hidden'); document.getElementById(id).classList.remove('flex'); }
+    function openModal(id) {
+      const el = document.getElementById(id);
+      el.classList.remove('hidden');
+      el.classList.add('flex');
+    }
+
+    function openAddModal() {
+      document.getElementById('inp-cat-hidden').value = currentCat;
+      document.getElementById('inp-edit-id').value = ""; // clear edit id
+      document.getElementById('modal-title').innerText = "Thêm Bài Mới";
+      
+      // Clear form
+      document.getElementById('inp-title').value = '';
+      document.getElementById('inp-link').value = '';
+      document.getElementById('inp-link-giai').value = '';
+      document.getElementById('inp-desc').value = '';
+      document.getElementById('inp-level').value = '';
+      document.querySelectorAll('.chk-target').forEach(c => c.checked = false);
+      document.getElementById('inp-draft').checked = false;
+
+      // Adjust inputs visibility/labels based on category
+      const isExam = currentCat.startsWith('exam-');
+      const isCasio = currentCat.startsWith('casio-');
+
+      if(isExam) {
+         document.getElementById('lbl-link1').innerText = "Link Đề";
+         document.getElementById('div-link-giai').classList.remove('hidden');
+         document.getElementById('lbl-link2').innerText = "Link Chữa (Video)";
+      } else if (isCasio) {
+         document.getElementById('lbl-link1').innerText = "Link Xem (Video/Lý thuyết)";
+         document.getElementById('div-link-giai').classList.remove('hidden');
+         document.getElementById('lbl-link2').innerText = "Link Luyện (Bài tập)";
+      } else {
+         document.getElementById('lbl-link1').innerText = "Link Bài";
+         document.getElementById('div-link-giai').classList.add('hidden');
+      }
+
+      openModal('add-modal');
+    }
+
+    function editLesson(id) {
+      const item = database.find(x => x.id === id);
+      if(!item) return;
+
+      document.getElementById('inp-cat-hidden').value = item.cat;
+      document.getElementById('inp-edit-id').value = item.id;
+      document.getElementById('modal-title').innerText = "Chỉnh Sửa Bài";
+
+      document.getElementById('inp-title').value = item.title;
+      document.getElementById('inp-link').value = item.link;
+      document.getElementById('inp-link-giai').value = item.linkGiai || '';
+      document.getElementById('inp-desc').value = item.desc || '';
+      document.getElementById('inp-level').value = item.level || '';
+      document.getElementById('inp-draft').checked = (item.status === 'draft');
+
+      // Check boxes
+      const targets = item.targets || [];
+      document.querySelectorAll('.chk-target').forEach(c => {
+         c.checked = targets.includes(c.value);
+      });
+
+      // Visibility Logic (same as Add)
+      const isExam = item.cat.startsWith('exam-');
+      const isCasio = item.cat.startsWith('casio-');
+
+      if(isExam) {
+         document.getElementById('lbl-link1').innerText = "Link Đề";
+         document.getElementById('div-link-giai').classList.remove('hidden');
+         document.getElementById('lbl-link2').innerText = "Link Chữa";
+      } else if (isCasio) {
+         document.getElementById('lbl-link1').innerText = "Link Xem";
+         document.getElementById('div-link-giai').classList.remove('hidden');
+         document.getElementById('lbl-link2').innerText = "Link Luyện";
+      } else {
+         document.getElementById('lbl-link1').innerText = "Link Bài";
+         document.getElementById('div-link-giai').classList.add('hidden');
+      }
+
+      openModal('add-modal');
+    }
+
+    function saveLesson() {
+      const id = document.getElementById('inp-edit-id').value;
+      const title = document.getElementById('inp-title').value.trim();
+      const link = document.getElementById('inp-link').value.trim();
+      const linkGiai = document.getElementById('inp-link-giai').value.trim();
+      const desc = document.getElementById('inp-desc').value.trim();
+      const cat = document.getElementById('inp-cat-hidden').value;
+      const isDraft = document.getElementById('inp-draft').checked;
+      const level = document.getElementById('inp-level').value;
+      
+      const targets = [];
+      document.querySelectorAll('.chk-target:checked').forEach(c => targets.push(c.value));
+
+      if(!title) return toast("Thiếu tiêu đề!", "err");
+
+      if(id) {
+        // UPDATE
+        const idx = database.findIndex(x => x.id == id);
+        if(idx !== -1) {
+          database[idx] = { 
+            ...database[idx], 
+            title, link, linkGiai, desc, status: isDraft?'draft':'published',
+            level, targets
+          };
+          toast("Đã cập nhật bài viết 👌", "ok");
+        }
+      } else {
+        // CREATE
+        database.push({
+          id: Date.now(),
+          cat, title, link: link||"#", linkGiai, desc, 
+          status: isDraft?'draft':'published',
+          level, targets
+        });
+        toast("Đã thêm bài mới ✅", "ok");
+      }
+
+      saveState();
+      closeModal('add-modal');
+      renderList(cat);
+    }
+
+    function deleteLesson(id) {
+      if(!confirm("Xóa bài này?")) return;
+      const idx = database.findIndex(x => x.id === id);
+      if(idx > -1) {
+        database.splice(idx, 1);
+        favorites.delete(id);
+        delete doneMap[id];
+        saveState();
+        toast("Đã xóa bài.", "warn");
+        renderList(currentCat);
+      }
+    }
+
+    function openConfigModal() { openModal('config-modal'); }
+    function saveConfig() {
+      siteConfig.avatar = document.getElementById('cfg-avatar').value.trim() || siteConfig.avatar;
+      siteConfig.logoText = document.getElementById('cfg-logo-text').value.trim() || siteConfig.logoText;
+      siteConfig.slogan = document.getElementById('cfg-slogan').value.trim() || siteConfig.slogan;
+      siteConfig.social.fb = document.getElementById('cfg-fb').value.trim();
+      siteConfig.social.tt = document.getElementById('cfg-tt').value.trim();
+      siteConfig.social.yt = document.getElementById('cfg-yt').value.trim();
+      saveState();
+      renderConfig();
+      closeModal('config-modal');
+      toast("Đã cập nhật giao diện ✨", "ok");
+    }
+
+    // =========================
+    // HOME CARDS
+    // =========================
+    function openHomeCardsModal() { renderHomeCardsEditor(); openModal('homecards-modal'); }
+    function renderHomeCardsEditor() {
+      const wrap = document.getElementById('homecards-editor');
+      wrap.innerHTML = '';
+      homeCards.forEach((c, idx) => {
+        const row = document.createElement('div');
+        row.className = "border border-white/10 rounded-2xl p-4 bg-white/5";
+        row.innerHTML = `
+          <div class="flex items-center justify-between mb-3">
+            <div class="font-black text-white">Card #${idx+1}</div>
+            <button onclick="removeHomeCard(${idx})" class="px-3 py-1.5 rounded-xl bg-red-500/15 hover:bg-red-500/25 text-red-200 text-xs font-black">Xóa</button>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+            <div><label class="text-[11px] font-bold text-gray-400 uppercase">Icon</label><input id="hc-icon-${idx}" value="${escapeHtml(c.icon)}" class="w-full p-3 bg-cardBg border border-white/10 rounded-2xl text-white outline-none"></div>
+            <div class="md:col-span-2"><label class="text-[11px] font-bold text-gray-400 uppercase">Title</label><input id="hc-title-${idx}" value="${escapeHtml(c.title)}" class="w-full p-3 bg-cardBg border border-white/10 rounded-2xl text-white outline-none"></div>
+            <div class="md:col-span-3"><label class="text-[11px] font-bold text-gray-400 uppercase">Desc</label><input id="hc-desc-${idx}" value="${escapeHtml(c.desc)}" class="w-full p-3 bg-cardBg border border-white/10 rounded-2xl text-white outline-none"></div>
+          </div>
+        `;
+        wrap.appendChild(row);
+      });
+    }
+    function addHomeCard() { homeCards.push({ icon:'fa-star', color:'text-primary', bg:'bg-primary/20', border:'hover:border-primary/50', title:'Card mới', desc:'Mô tả...' }); renderHomeCardsEditor(); }
+    function removeHomeCard(idx) { homeCards.splice(idx, 1); renderHomeCardsEditor(); }
+    function saveHomeCards() {
+      homeCards = homeCards.map((c, idx) => ({
+        ...c,
+        icon: document.getElementById(`hc-icon-${idx}`).value.trim() || c.icon,
+        title: document.getElementById(`hc-title-${idx}`).value.trim() || c.title,
+        desc: document.getElementById(`hc-desc-${idx}`).value.trim() || c.desc
+      }));
+      saveState();
+      renderHomeCards();
+      closeModal('homecards-modal');
+      toast("Đã lưu card Trang chủ 🪄", "ok");
+    }
+
+    // =========================
+    // EXPORT HTML
+    // =========================
+    function exportHTML() {
+      let html = document.documentElement.outerHTML;
+      html = html.replace(/let siteConfig = \{[\s\S]*?\};/, `let siteConfig = ${JSON.stringify(siteConfig)};`);
+      html = html.replace(/let homeCards = \[[\s\S]*?\];/, `let homeCards = ${JSON.stringify(homeCards)};`);
+      html = html.replace(/let database = \[[\s\S]*?\];/, `let database = ${JSON.stringify(database)};`);
+      const blob = new Blob([html], {type:'text/html'});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'Ueih_Casio_V4.html';
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      toast("Đã export HTML ✅", "ok");
+    }
+
+    // =========================
+    // INIT
+    // =========================
+    function init() {
+      loadState();
+      renderConfig();
+      renderHomeCards();
+      switchPage('home'); // Fix: Show home page by default
+    }
+    window.addEventListener('resize', () => { if(window.innerWidth >= 768) closeDrawer(); });
+    init();
+  </script>
+</body></html>    .ring-glow { box-shadow: 0 0 0 1px rgba(220,38,38,.25), 0 0 22px rgba(220,38,38,.28); }
+
+    /* drawer */
+    .drawer { transform: translateX(100%); transition: transform .25s ease; }
+    .drawer.open { transform: translateX(0); }
+  
     /* LIGHT MODE OVERRIDES (quick & dirty nhưng dùng ổn) */
     html:not(.dark) body { background-color: #f8fafc !important; color: #0f172a !important; }
     html:not(.dark) .glass { background: rgba(255,255,255,.78) !important; }
