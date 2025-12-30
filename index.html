@@ -1097,9 +1097,6 @@
       const cfg = localStorage.getItem(LS.config);
       if(cfg) siteConfig = {...siteConfig, ...safeParse(cfg, siteConfig)};
 
-      const db = localStorage.getItem(LS.db);
-      if(db) database = safeParse(db, database);
-
       const fav = localStorage.getItem(LS.fav);
       if(fav) favorites = new Set(safeParse(fav, []));
 
