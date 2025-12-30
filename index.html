@@ -13,7 +13,6 @@
     })();
   </script>
 
-
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&amp;display=swap" rel="stylesheet">
@@ -84,6 +83,7 @@
     html:not(.dark) .text-gray-700 { color: #94a3b8 !important; }
     html:not(.dark) .border-white\/10 { border-color: rgba(15,23,42,.12) !important; }
     html:not(.dark) .border-white\/20 { border-color: rgba(15,23,42,.18) !important; }
+    html:not(.dark) .border-white\/5 { border-color: rgba(15,23,42,.1) !important; }
     html:not(.dark) .bg-white\/5 { background-color: rgba(15,23,42,.05) !important; }
     html:not(.dark) .bg-white\/10 { background-color: rgba(15,23,42,.08) !important; }
     html:not(.dark) .bg-black\/40 { background-color: rgba(255,255,255,.7) !important; }
@@ -92,27 +92,25 @@
     html:not(.dark) .bg-black\/85 { background-color: rgba(0,0,0,.5) !important; }
     html:not(.dark) .ring-glow { box-shadow: 0 0 0 1px rgba(220,38,38,.25), 0 0 18px rgba(220,38,38,.22) !important; }
 
-    /* Badges */
+    /* Badges Levels */
     .badge-level-basic { background: rgba(148,163,184,0.2); color: #94a3b8; border:1px solid rgba(148,163,184,0.3); }
     .badge-level-apply { background: rgba(59,130,246,0.2); color: #60a5fa; border:1px solid rgba(59,130,246,0.3); }
     .badge-level-strong { background: rgba(249,115,22,0.2); color: #fb923c; border:1px solid rgba(249,115,22,0.3); }
     .badge-level-vip { background: linear-gradient(135deg, rgba(168,85,247,0.2), rgba(236,72,153,0.2)); color: #e879f9; border:1px solid rgba(168,85,247,0.3); }
     
-    .badge-target { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); font-size: 10px; padding: 2px 6px; border-radius: 6px; color: #cbd5e1; }
+    /* Target Badges (Style handled by JS mostly, but base here) */
+    .badge-target { font-size: 10px; padding: 2px 6px; border-radius: 6px; border: 1px solid; }
   </style>
-</head>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Montserrat, sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.container{width:100%}@media (min-width: 640px){.container{max-width:640px}}@media (min-width: 768px){.container{max-width:768px}}@media (min-width: 1024px){.container{max-width:1024px}}@media (min-width: 1280px){.container{max-width:1280px}}@media (min-width: 1536px){.container{max-width:1536px}}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0px}.bottom-0{bottom:0px}.bottom-6{bottom:1.5rem}.bottom-\[-12\%\]{bottom:-12%}.left-1\/2{left:50%}.left-3{left:0.75rem}.left-\[-10\%\]{left:-10%}.right-0{right:0px}.right-4{right:1rem}.right-6{right:1.5rem}.right-\[-12\%\]{right:-12%}.top-0{top:0px}.top-1\/2{top:50%}.top-4{top:1rem}.top-\[-10\%\]{top:-10%}.top-full{top:100%}.right-3{right:0.75rem}.top-3{top:0.75rem}.z-10{z-index:10}.z-50{z-index:50}.z-\[-1\]{z-index:-1}.z-\[100\]{z-index:100}.z-\[110\]{z-index:110}.z-\[120\]{z-index:120}.z-\[200\]{z-index:200}.z-\[90\]{z-index:90}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-10{margin-bottom:2.5rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mr-1{margin-right:0.25rem}.mr-2{margin-right:0.5rem}.mt-1{margin-top:0.25rem}.mt-2{margin-top:0.5rem}.mt-3{margin-top:0.75rem}.mt-4{margin-top:1rem}.mt-5{margin-top:1.25rem}.mt-auto{margin-top:auto}.ml-2{margin-left:0.5rem}.mt-0\.5{margin-top:0.125rem}.line-clamp-2{overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-10{height:2.5rem}.h-2{height:0.5rem}.h-2\.5{height:0.625rem}.h-20{height:5rem}.h-32{height:8rem}.h-4{height:1rem}.h-5{height:1.25rem}.h-9{height:2.25rem}.h-\[520px\]{height:520px}.h-full{height:100%}.h-12{height:3rem}.h-11{height:2.75rem}.h-7{height:1.75rem}.max-h-\[82vh\]{max-height:82vh}.max-h-\[90vh\]{max-height:90vh}.min-h-screen{min-height:100vh}.w-0{width:0px}.w-10{width:2.5rem}.w-2{width:0.5rem}.w-2\.5{width:0.625rem}.w-32{width:8rem}.w-4{width:1rem}.w-5{width:1.25rem}.w-64{width:16rem}.w-72{width:18rem}.w-9{width:2.25rem}.w-\[520px\]{width:520px}.w-\[88\%\]{width:88%}.w-full{width:100%}.w-12{width:3rem}.w-11{width:2.75rem}.w-7{width:1.75rem}.min-w-0{min-width:0px}.max-w-2xl{max-width:42rem}.max-w-4xl{max-width:56rem}.max-w-5xl{max-width:64rem}.max-w-md{max-width:28rem}.max-w-sm{max-width:24rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.flex-grow{flex-grow:1}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.-translate-y-1\/2{--tw-translate-y:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes pop{0%{transform:scale(0.96);opacity:0}100%{transform:scale(1);opacity:1}}.animate-pop{animation:pop 0.18s ease-out forwards}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite}@keyframes slideIn{0%{opacity:0;transform:translateY(-8px)}100%{opacity:1;transform:translateY(0)}}.animate-slide-in{animation:slideIn 0.35s ease-out forwards}.cursor-pointer{cursor:pointer}.cursor-default{cursor:default}.select-none{-webkit-user-select:none;user-select:none}.list-none{list-style-type:none}.appearance-none{-webkit-appearance:none;appearance:none}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-end{align-items:flex-end}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:0.25rem}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.space-x-8 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(2rem * var(--tw-space-x-reverse));margin-left:calc(2rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.overflow-x-hidden{overflow-x:hidden}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.whitespace-nowrap{white-space:nowrap}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.rounded{border-radius:0.25rem}.border{border-width:1px}.border-4{border-width:4px}.border-b{border-bottom-width:1px}.border-l{border-left-width:1px}.border-t{border-top-width:1px}.border-black{--tw-border-opacity:1;border-color:rgb(0 0 0 / var(--tw-border-opacity, 1))}.border-primary{--tw-border-opacity:1;border-color:rgb(220 38 38 / var(--tw-border-opacity, 1))}.border-primary\/30{border-color:rgb(220 38 38 / 0.3)}.border-white\/10{border-color:rgb(255 255 255 / 0.1)}.border-white\/5{border-color:rgb(255 255 255 / 0.05)}.border-yellow-500\/20{border-color:rgb(234 179 8 / 0.2)}.border-green-500\/20{border-color:rgb(34 197 94 / 0.2)}.border-purple-500\/20{border-color:rgb(168 85 247 / 0.2)}.border-red-500\/20{border-color:rgb(239 68 68 / 0.2)}.border-green-500\/30{border-color:rgb(34 197 94 / 0.3)}.bg-black\/40{background-color:rgb(0 0 0 / 0.4)}.bg-black\/70{background-color:rgb(0 0 0 / 0.7)}.bg-black\/80{background-color:rgb(0 0 0 / 0.8)}.bg-black\/85{background-color:rgb(0 0 0 / 0.85)}.bg-cardBg{--tw-bg-opacity:1;background-color:rgb(15 23 42 / var(--tw-bg-opacity, 1))}.bg-darkBg{--tw-bg-opacity:1;background-color:rgb(2 6 23 / var(--tw-bg-opacity, 1))}.bg-gray-600{--tw-bg-opacity:1;background-color:rgb(75 85 99 / var(--tw-bg-opacity, 1))}.bg-green-500{--tw-bg-opacity:1;background-color:rgb(34 197 94 / var(--tw-bg-opacity, 1))}.bg-primary{--tw-bg-opacity:1;background-color:rgb(220 38 38 / var(--tw-bg-opacity, 1))}.bg-primary\/10{background-color:rgb(220 38 38 / 0.1)}.bg-white\/5{background-color:rgb(255 255 255 / 0.05)}.bg-yellow-500{--tw-bg-opacity:1;background-color:rgb(234 179 8 / var(--tw-bg-opacity, 1))}.bg-yellow-500\/10{background-color:rgb(234 179 8 / 0.1)}.bg-blue-900\/30{background-color:rgb(30 58 138 / 0.3)}.bg-purple-900\/30{background-color:rgb(88 28 135 / 0.3)}.bg-yellow-900\/30{background-color:rgb(113 63 18 / 0.3)}.bg-blue-500\/10{background-color:rgb(59 130 246 / 0.1)}.bg-green-500\/10{background-color:rgb(34 197 94 / 0.1)}.bg-purple-500\/10{background-color:rgb(168 85 247 / 0.1)}.bg-red-500\/10{background-color:rgb(239 68 68 / 0.1)}.bg-white\/10{background-color:rgb(255 255 255 / 0.1)}.bg-green-900\/30{background-color:rgb(20 83 45 / 0.3)}.bg-cardBg\/90{background-color:rgb(15 23 42 / 0.9)}.object-cover{object-fit:cover}.p-1{padding:0.25rem}.p-2{padding:0.5rem}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.p-5{padding:1.25rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-20{padding-top:5rem;padding-bottom:5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.py-8{padding-top:2rem;padding-bottom:2rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.pb-1{padding-bottom:0.25rem}.pb-10{padding-bottom:2.5rem}.pb-2{padding-bottom:0.5rem}.pb-4{padding-bottom:1rem}.pl-9{padding-left:2.25rem}.pr-3{padding-right:0.75rem}.pt-16{padding-top:4rem}.pt-2{padding-top:0.5rem}.text-left{text-align:left}.text-center{text-align:center}.font-sans{font-family:Montserrat, sans-serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-6xl{font-size:3.75rem;line-height:1}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.text-base{font-size:1rem;line-height:1.5rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-medium{font-weight:500}.uppercase{text-transform:uppercase}.normal-case{text-transform:none}.italic{font-style:italic}.leading-none{line-height:1}.leading-snug{line-height:1.375}.leading-relaxed{line-height:1.625}.tracking-tight{letter-spacing:-0.025em}.tracking-tighter{letter-spacing:-0.05em}.tracking-wide{letter-spacing:0.025em}.tracking-widest{letter-spacing:0.1em}.text-black{--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity, 1))}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.text-green-500{--tw-text-opacity:1;color:rgb(34 197 94 / var(--tw-text-opacity, 1))}.text-primary{--tw-text-opacity:1;color:rgb(220 38 38 / var(--tw-text-opacity, 1))}.text-red-400{--tw-text-opacity:1;color:rgb(248 113 113 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-yellow-400{--tw-text-opacity:1;color:rgb(250 204 21 / var(--tw-text-opacity, 1))}.text-yellow-500{--tw-text-opacity:1;color:rgb(234 179 8 / var(--tw-text-opacity, 1))}.text-blue-400{--tw-text-opacity:1;color:rgb(96 165 250 / var(--tw-text-opacity, 1))}.text-purple-400{--tw-text-opacity:1;color:rgb(192 132 252 / var(--tw-text-opacity, 1))}.text-gray-200{--tw-text-opacity:1;color:rgb(229 231 235 / var(--tw-text-opacity, 1))}.text-green-400{--tw-text-opacity:1;color:rgb(74 222 128 / var(--tw-text-opacity, 1))}.text-white\/10{color:rgb(255 255 255 / 0.1)}.text-green-200{--tw-text-opacity:1;color:rgb(187 247 208 / var(--tw-text-opacity, 1))}.text-blue-500{--tw-text-opacity:1;color:rgb(59 130 246 / var(--tw-text-opacity, 1))}.text-red-500{--tw-text-opacity:1;color:rgb(239 68 68 / var(--tw-text-opacity, 1))}.accent-blue-500{accent-color:#3b82f6}.accent-green-500{accent-color:#22c55e}.accent-primary{accent-color:#dc2626}.accent-purple-500{accent-color:#a855f7}.accent-yellow-500{accent-color:#eab308}.opacity-50{opacity:0.5}.opacity-60{opacity:0.6}.opacity-70{opacity:0.7}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.outline-none{outline:2px solid transparent;outline-offset:2px}.blur-\[120px\]{--tw-blur:blur(120px);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur{--tw-backdrop-blur:blur(8px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.duration-500{transition-duration:500ms}.selection\:bg-primary *::selection{--tw-bg-opacity:1;background-color:rgb(220 38 38 / var(--tw-bg-opacity, 1))}.selection\:text-white *::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.selection\:bg-primary::selection{--tw-bg-opacity:1;background-color:rgb(220 38 38 / var(--tw-bg-opacity, 1))}.selection\:text-white::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.hover\:scale-110:hover{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:border-primary\/40:hover{border-color:rgb(220 38 38 / 0.4)}.hover\:border-blue-500\/50:hover{border-color:rgb(59 130 246 / 0.5)}.hover\:border-purple-500\/50:hover{border-color:rgb(168 85 247 / 0.5)}.hover\:border-yellow-500\/50:hover{border-color:rgb(234 179 8 / 0.5)}.hover\:border-primary\/50:hover{border-color:rgb(220 38 38 / 0.5)}.hover\:bg-primary:hover{--tw-bg-opacity:1;background-color:rgb(220 38 38 / var(--tw-bg-opacity, 1))}.hover\:bg-primary\/10:hover{background-color:rgb(220 38 38 / 0.1)}.hover\:bg-primaryDark:hover{--tw-bg-opacity:1;background-color:rgb(153 27 27 / var(--tw-bg-opacity, 1))}.hover\:bg-red-900\/20:hover{background-color:rgb(127 29 29 / 0.2)}.hover\:bg-white\/10:hover{background-color:rgb(255 255 255 / 0.1)}.hover\:bg-white\/5:hover{background-color:rgb(255 255 255 / 0.05)}.hover\:bg-yellow-400:hover{--tw-bg-opacity:1;background-color:rgb(250 204 21 / var(--tw-bg-opacity, 1))}.hover\:bg-white\/20:hover{background-color:rgb(255 255 255 / 0.2)}.hover\:text-blue-400:hover{--tw-text-opacity:1;color:rgb(96 165 250 / var(--tw-text-opacity, 1))}.hover\:text-blue-500:hover{--tw-text-opacity:1;color:rgb(59 130 246 / var(--tw-text-opacity, 1))}.hover\:text-green-400:hover{--tw-text-opacity:1;color:rgb(74 222 128 / var(--tw-text-opacity, 1))}.hover\:text-primary:hover{--tw-text-opacity:1;color:rgb(220 38 38 / var(--tw-text-opacity, 1))}.hover\:text-purple-400:hover{--tw-text-opacity:1;color:rgb(192 132 252 / var(--tw-text-opacity, 1))}.hover\:text-red-300:hover{--tw-text-opacity:1;color:rgb(252 165 165 / var(--tw-text-opacity, 1))}.hover\:text-red-400:hover{--tw-text-opacity:1;color:rgb(248 113 113 / var(--tw-text-opacity, 1))}.hover\:text-red-500:hover{--tw-text-opacity:1;color:rgb(239 68 68 / var(--tw-text-opacity, 1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.hover\:text-gray-300:hover{--tw-text-opacity:1;color:rgb(209 213 219 / var(--tw-text-opacity, 1))}.hover\:text-green-500:hover{--tw-text-opacity:1;color:rgb(34 197 94 / var(--tw-text-opacity, 1))}.hover\:text-yellow-400:hover{--tw-text-opacity:1;color:rgb(250 204 21 / var(--tw-text-opacity, 1))}.focus\:border-green-500:focus{--tw-border-opacity:1;border-color:rgb(34 197 94 / var(--tw-border-opacity, 1))}.focus\:border-primary:focus{--tw-border-opacity:1;border-color:rgb(220 38 38 / var(--tw-border-opacity, 1))}.focus\:border-primary\/60:focus{border-color:rgb(220 38 38 / 0.6)}.group[open] .group-open\:rotate-180{--tw-rotate:180deg;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:block{display:block}.group:hover .group-hover\:scale-105{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:scale-110{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:bg-primary{--tw-bg-opacity:1;background-color:rgb(220 38 38 / var(--tw-bg-opacity, 1))}.group:hover .group-hover\:text-primary{--tw-text-opacity:1;color:rgb(220 38 38 / var(--tw-text-opacity, 1))}.group:hover .group-hover\:text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}@media (min-width: 640px){.sm\:col-span-3{grid-column:span 3 / span 3}.sm\:inline{display:inline}.sm\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.sm\:flex-row{flex-direction:row}}@media (min-width: 768px){.md\:block{display:block}.md\:flex{display:flex}.md\:hidden{display:none}.md\:w-auto{width:auto}.md\:flex-row{flex-direction:row}.md\:items-end{align-items:flex-end}.md\:items-center{align-items:center}.md\:justify-between{justify-content:space-between}.md\:text-2xl{font-size:1.5rem;line-height:2rem}.md\:text-4xl{font-size:2.25rem;line-height:2.5rem}.md\:text-7xl{font-size:4.5rem;line-height:1}}</style></head>
 
-<body class="bg-darkBg text-white min-h-screen flex flex-col font-sans selection:bg-primary selection:text-white overflow-x-hidden">
-  <!-- background vibe -->
+<body class="bg-darkBg text-white min-h-screen flex flex-col font-sans selection:bg-primary selection:text-white overflow-x-hidden admin-mode">
   <div class="fixed inset-0 bg-grid-red z-[-1] pointer-events-none"></div>
   <div class="fixed top-[-10%] left-[-10%] w-[520px] h-[520px] bg-primary/10 rounded-full blur-[120px] z-[-1]"></div>
   <div class="fixed bottom-[-12%] right-[-12%] w-[520px] h-[520px] bg-white/5 rounded-full blur-[120px] z-[-1]"></div>
 
-  <!-- NAV -->
   <nav class="sticky top-0 z-50 border-b border-white/10 glass">
     <div class="container mx-auto px-4 h-20 flex justify-between items-center gap-3">
 
-      <!-- logo -->
       <div onclick="switchPage('home')" class="cursor-pointer flex items-center gap-3 group select-none">
         <div class="relative">
           <img id="nav-avatar" src="https://scontent.fhan20-1.fna.fbcdn.net/v/t39.30808-6/555733813_810835077974194_4101748610057312325_n.jpg?_nc_cat=103&amp;ccb=1-7&amp;_nc_sid=6ee11a&amp;_nc_eui2=AeHDTdYqWdNFRjU8d2r5jAhjebOdWmQ9kbF5s51aZD2RsVt3gAla-o2NSldRE2u4LlyamgEm9bbvjTd0fQAskB83&amp;_nc_ohc=j7pYsq1YFBIQ7kNvwGqVswS&amp;_nc_oc=Adlz2s1APpaob9-hqj_UUypHn8eLkWbC-8zRqetZZ8lreC3w1g2GCzKFBPN2XtBmeX0&amp;_nc_zt=23&amp;_nc_ht=scontent.fhan20-1.fna&amp;_nc_gid=kLhRTL2MoYzPK4ngUv-7zA&amp;oh=00_AflDQh0Z0RhjS2cSJvz5BRhWHcCxjtV7wKug-AHH5fEuuA&amp;oe=6958839A" class="w-10 h-10 rounded-full border border-primary object-cover ring-glow group-hover:scale-110 transition duration-300">
@@ -124,7 +122,6 @@
         </div>
       </div>
 
-      <!-- desktop nav -->
       <div class="hidden md:flex items-center space-x-8 text-sm font-bold uppercase tracking-wide">
         <button onclick="switchPage('home')" class="hover:text-primary transition">Trang chủ</button>
 
@@ -133,7 +130,9 @@
             Kỹ năng Casio 580 <i class="fas fa-chevron-down text-[10px]"></i>
           </button>
           <div class="absolute top-full left-1/2 -translate-x-1/2 w-72 bg-cardBg border border-primary/30 soft-shadow rounded-2xl overflow-hidden hidden group-hover:block animate-slide-in">
-            <button onclick="switchPage('casio-so-hoc')" class="block w-full text-left px-4 py-3 hover:bg-primary/10 hover:text-primary border-b border-white/5 normal-case transition">🔢 Số Học </button>
+            <button onclick="switchPage('casio-so-hoc')" class="block w-full text-left px-4 py-3 hover:bg-primary/10 hover:text-primary border-b border-white/5 normal-case transition">🔢 Số Học</button>
+            <button onclick="switchPage('casio-dai-so')" class="block w-full text-left px-4 py-3 hover:bg-primary/10 hover:text-primary border-b border-white/5 normal-case transition">✖️ Đại Số</button>
+            <button onclick="switchPage('casio-skill-manh')" class="block w-full text-left px-4 py-3 hover:bg-primary/10 hover:text-primary border-b border-white/5 normal-case transition">💪 Các Skill Mạnh</button>
             <button onclick="switchPage('casio-ham-so')" class="block w-full text-left px-4 py-3 hover:bg-primary/10 hover:text-primary border-b border-white/5 normal-case transition">📈 Hàm Số &amp; Đồ Thị</button>
             <button onclick="switchPage('casio-giai-tich')" class="block w-full text-left px-4 py-3 hover:bg-primary/10 hover:text-primary border-b border-white/5 normal-case transition">∫ Giải Tích</button>
             <button onclick="switchPage('casio-hinh-hoc')" class="block w-full text-left px-4 py-3 hover:bg-primary/10 hover:text-primary border-b border-white/5 normal-case transition">📐 Hình Học Oxyz</button>
@@ -149,7 +148,7 @@
             Kỹ năng Casio 880 <i class="fas fa-chevron-down text-[10px]"></i>
           </button>
           <div class="absolute top-full left-1/2 -translate-x-1/2 w-72 bg-cardBg border border-primary/30 soft-shadow rounded-2xl overflow-hidden hidden group-hover:block animate-slide-in">
-            <button onclick="switchPage('casio-880-so-hoc')" class="block w-full text-left px-4 py-3 hover:bg-primary/10 hover:text-primary border-b border-white/5 normal-case transition">🔢 Số Học </button>
+            <button onclick="switchPage('casio-880-so-hoc')" class="block w-full text-left px-4 py-3 hover:bg-primary/10 hover:text-primary border-b border-white/5 normal-case transition">🔢 Số Học</button>
             <button onclick="switchPage('casio-880-ham-so')" class="block w-full text-left px-4 py-3 hover:bg-primary/10 hover:text-primary border-b border-white/5 normal-case transition">📈 Hàm Số &amp; Đồ Thị</button>
             <button onclick="switchPage('casio-880-giai-tich')" class="block w-full text-left px-4 py-3 hover:bg-primary/10 hover:text-primary border-b border-white/5 normal-case transition">∫ Giải Tích</button>
             <button onclick="switchPage('casio-880-hinh-hoc')" class="block w-full text-left px-4 py-3 hover:bg-primary/10 hover:text-primary border-b border-white/5 normal-case transition">📐 Hình Học Oxyz</button>
@@ -177,19 +176,17 @@
         </button>
       </div>
 
-      <!-- right controls -->
       <div class="flex items-center gap-2">
         <button onclick="toggleTheme()" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 hover:border-primary/40 hover:bg-white/10 transition flex items-center justify-center" title="Light/Dark">
           <i id="theme-ico" class="fas fa-moon"></i>
         </button>
 
-        <button onclick="requestAdmin()" id="btn-admin" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 hover:border-primary/40 hover:bg-white/10 transition flex items-center justify-center" title="Admin">
+        <button onclick="requestAdmin()" id="btn-admin" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 hover:border-primary/40 hover:bg-white/10 transition flex items-center justify-center text-primary border-primary" title="Admin">
           <i class="fas fa-user-secret"></i>
         </button>
 
-        <div id="admin-indicator" class="hidden md:block w-2 h-2 rounded-full bg-gray-600"></div>
+        <div id="admin-indicator" class="md:block w-2 h-2 rounded-full bg-gray-600 transition bg-green-500"></div>
 
-        <!-- mobile menu btn -->
         <button onclick="openDrawer()" class="md:hidden w-10 h-10 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition flex items-center justify-center" title="Menu">
           <i class="fas fa-bars"></i>
         </button>
@@ -197,10 +194,9 @@
     </div>
   </nav>
 
-  <!-- Mobile Drawer -->
   <div id="drawer-overlay" class="fixed inset-0 z-[90] hidden">
     <div class="absolute inset-0 bg-black/70 backdrop-blur-sm" onclick="closeDrawer()"></div>
-    <div id="drawer" class="drawer absolute top-0 right-0 h-full w-[88%] max-w-sm bg-cardBg border-l border-white/10 soft-shadow p-4">
+    <div id="drawer" class="drawer absolute top-0 right-0 h-full w-[88%] max-w-sm bg-cardBg border-l border-white/10 soft-shadow p-4 overflow-y-auto">
       <div class="flex items-center justify-between mb-4">
         <div class="font-black tracking-tight text-lg">Menu</div>
         <button onclick="closeDrawer()" class="w-9 h-9 rounded-lg bg-white/5 hover:bg-white/10 transition flex items-center justify-center">
@@ -219,7 +215,9 @@
             <i class="fas fa-chevron-down text-xs opacity-70 group-open:rotate-180 transition"></i>
           </summary>
           <div class="pb-2">
-            <button onclick="switchPage('casio-so-hoc'); closeDrawer();" class="w-full text-left px-4 py-2 hover:bg-white/10 transition">🔢 Số Học </button>
+            <button onclick="switchPage('casio-so-hoc'); closeDrawer();" class="w-full text-left px-4 py-2 hover:bg-white/10 transition">🔢 Số Học</button>
+            <button onclick="switchPage('casio-dai-so'); closeDrawer();" class="w-full text-left px-4 py-2 hover:bg-white/10 transition">✖️ Đại Số</button>
+            <button onclick="switchPage('casio-skill-manh'); closeDrawer();" class="w-full text-left px-4 py-2 hover:bg-white/10 transition">💪 Các Skill Mạnh</button>
             <button onclick="switchPage('casio-ham-so'); closeDrawer();" class="w-full text-left px-4 py-2 hover:bg-white/10 transition">📈 Hàm Số &amp; Đồ Thị</button>
             <button onclick="switchPage('casio-giai-tich'); closeDrawer();" class="w-full text-left px-4 py-2 hover:bg-white/10 transition">∫ Giải Tích</button>
             <button onclick="switchPage('casio-hinh-hoc'); closeDrawer();" class="w-full text-left px-4 py-2 hover:bg-white/10 transition">📐 Hình Học Oxyz</button>
@@ -234,7 +232,7 @@
             <i class="fas fa-chevron-down text-xs opacity-70 group-open:rotate-180 transition"></i>
           </summary>
           <div class="pb-2">
-            <button onclick="switchPage('casio-880-so-hoc'); closeDrawer();" class="w-full text-left px-4 py-2 hover:bg-white/10 transition">🔢 Số Học </button>
+            <button onclick="switchPage('casio-880-so-hoc'); closeDrawer();" class="w-full text-left px-4 py-2 hover:bg-white/10 transition">🔢 Số Học</button>
             <button onclick="switchPage('casio-880-ham-so'); closeDrawer();" class="w-full text-left px-4 py-2 hover:bg-white/10 transition">📈 Hàm Số &amp; Đồ Thị</button>
             <button onclick="switchPage('casio-880-giai-tich'); closeDrawer();" class="w-full text-left px-4 py-2 hover:bg-white/10 transition">∫ Giải Tích</button>
             <button onclick="switchPage('casio-880-hinh-hoc'); closeDrawer();" class="w-full text-left px-4 py-2 hover:bg-white/10 transition">📐 Hình Học Oxyz</button>
@@ -268,10 +266,8 @@
     </div>
   </div>
 
-  <!-- MAIN -->
   <main class="flex-grow">
 
-    <!-- HOME -->
     <section id="page-home" class="page-section">
       <div class="pt-16 pb-10 text-center px-4 relative">
 
@@ -285,7 +281,6 @@
 
         <p class="relative z-10 text-lg md:text-2xl text-gray-300 font-medium italic mb-10" id="home-slogan">Casio Lẹ Lẹ Rồi Chuyển Câu Thoi🐣</p>
 
-        <!-- quick actions -->
         <div class="relative z-10 container mx-auto max-w-5xl">
           <div class="flex flex-col md:flex-row gap-3 justify-center mb-8">
             <button onclick="switchPage('casio-so-hoc')" class="px-5 py-3 rounded-2xl bg-primary hover:bg-primaryDark transition font-black tracking-wide flex items-center justify-center gap-2 soft-shadow">
@@ -303,28 +298,45 @@
             </button>
           </div>
 
-          <!-- feature cards slider -->
           <div class="horizontal-scroll px-2 pb-4">
-            <div id="home-cards-anchor" class="hidden"></div>
+            <div class="bg-cardBg border border-white/10 p-6 rounded-2xl hover:border-blue-500/50 transition duration-300 group cursor-default">
+          <div class="w-12 h-12 rounded-xl bg-blue-900/30 text-blue-400 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <h3 class="font-black text-lg mb-2 text-white">Tốc Độ Ánh Sáng</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">Phương pháp bấm máy giúp tiết kiệm 70% thời gian làm bài.</p>
+        </div><div class="bg-cardBg border border-white/10 p-6 rounded-2xl hover:border-purple-500/50 transition duration-300 group cursor-default">
+          <div class="w-12 h-12 rounded-xl bg-purple-900/30 text-purple-400 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h3 class="font-black text-lg mb-2 text-white">Tư Duy Casio</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">Không chỉ là bấm máy, mà là tư duy giải toán trắc nghiệm.</p>
+        </div><div class="bg-cardBg border border-white/10 p-6 rounded-2xl hover:border-yellow-500/50 transition duration-300 group cursor-default">
+          <div class="w-12 h-12 rounded-xl bg-yellow-900/30 text-yellow-400 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition">
+            <i class="fas fa-fire"></i>
+          </div>
+          <h3 class="font-black text-lg mb-2 text-white">Độc Quyền Ueih</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">Các tuyệt chiêu chỉ được chia sẻ nội bộ tại đây.</p>
+        </div><div id="home-cards-anchor" class="hidden"></div>
           </div>
           <p class="md:hidden text-xs text-gray-500 mt-1 animate-pulse"><i class="fas fa-arrows-left-right"></i> Vuốt để xem thêm</p>
         </div>
       </div>
     </section>
 
-    <!-- DETAIL PAGE -->
-    <section id="page-detail" class="page-section container mx-auto px-4 py-10 max-w-4xl">
+    <section id="page-detail" class="page-section container mx-auto px-4 py-10 max-w-4xl active">
+      
       <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6 border-b border-white/10 pb-4">
         <div class="min-w-0">
           <button onclick="switchPage('home')" class="text-gray-400 hover:text-primary text-xs font-bold uppercase mb-2 flex items-center gap-1">
             <i class="fas fa-arrow-left"></i> Trang chủ
           </button>
-          <h2 id="detail-title" class="text-2xl md:text-4xl font-black text-white uppercase tracking-wide truncate">Danh mục</h2>
+          <h2 id="detail-title" class="text-2xl md:text-4xl font-black text-white uppercase tracking-wide truncate">Số Học</h2>
           <div class="mt-3">
             <div class="flex items-center gap-3 text-xs text-gray-400">
-              <span id="detail-count">0 bài</span>
+              <span id="detail-count">14 bài</span>
               <span class="opacity-50">•</span>
-              <span id="detail-progress-text">0% hoàn thành (0/0)</span>
+              <span id="detail-progress-text">0% hoàn thành (0/14)</span>
             </div>
             <div class="mt-2 h-2 rounded-full bg-white/5 overflow-hidden border border-white/10">
               <div id="detail-progress-bar" class="h-full bg-primary w-0 transition-all duration-300" style="width: 0%;"></div>
@@ -332,27 +344,441 @@
           </div>
         </div>
 
-        <div class="flex flex-col sm:flex-row gap-2">
-          <div class="relative flex-1">
-            <i class="fas fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"></i>
-            <input id="inp-search" oninput="renderList(currentCat)" placeholder="Tìm bài theo tiêu đề..." class="w-full pl-9 pr-3 py-3 bg-white/5 border border-white/10 rounded-2xl outline-none focus:border-primary/60 text-sm">
+        <div class="flex flex-col sm:flex-row gap-2 items-center w-full md:w-auto">
+          <div class="flex bg-white/5 rounded-xl p-1 border border-white/10 shrink-0">
+            <button onclick="toggleViewMode('detail')" id="btn-view-detail" class="w-9 h-9 flex items-center justify-center rounded-lg text-gray-400 hover:text-white transition" title="Chi tiết">
+              <i class="fas fa-list"></i>
+            </button>
+            <button onclick="toggleViewMode('compact')" id="btn-view-compact" class="w-9 h-9 flex items-center justify-center rounded-lg bg-primary text-white transition" title="Giản lược">
+              <i class="fas fa-bars"></i>
+            </button>
           </div>
 
-          <button onclick="openAddModal()" class="admin-only bg-primary hover:bg-primaryDark text-white px-5 py-3 rounded-2xl font-black shadow-lg transition flex items-center justify-center gap-2 text-sm whitespace-nowrap">
-            <i class="fas fa-plus"></i> Thêm Bài
+          <div class="relative flex-1 w-full">
+            <i class="fas fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"></i>
+            <input id="inp-search" oninput="renderList(currentCat)" placeholder="Tìm bài..." class="w-full pl-9 pr-3 py-3 bg-white/5 border border-white/10 rounded-2xl outline-none focus:border-primary/60 text-sm">
+          </div>
+
+          <button onclick="openAddModal()" class="admin-only bg-primary hover:bg-primaryDark text-white px-4 py-3 rounded-2xl font-black shadow-lg transition flex items-center justify-center gap-2 text-sm whitespace-nowrap shrink-0">
+            <i class="fas fa-plus"></i> <span class="hidden sm:inline">Thêm</span>
           </button>
         </div>
       </div>
 
-      <div id="detail-list" class="space-y-4"></div>
+      <div id="detail-list" class="space-y-4">
+            <div class="bg-cardBg border border-white/5 hover:border-primary/50 px-4 py-3 rounded-xl flex items-center justify-between gap-3 group relative transition ">
+               <div class="flex items-center gap-3 min-w-0">
+                 <i class="fas fa-circle text-white/10 text-xs shrink-0 cursor-pointer hover:text-green-500 transition" onclick="event.stopPropagation(); toggleDone(1767035091741)"></i>
+                 <div class="min-w-0">
+                    <div class="flex items-center gap-2">
+                       <h3 class="font-bold text-sm text-gray-200 truncate group-hover:text-primary transition">Số chữ số 0 tận cùng của n!</h3>
+                       
+                       
+                    </div>
+                    <div class="flex items-center gap-1 mt-0.5 text-[10px] opacity-70">
+                       <span class="badge-target bg-red-500/10 text-red-400 border-red-500/20 px-2 py-0.5 rounded text-[10px] font-bold mr-1">TSA</span><span class="badge-target bg-purple-500/10 text-purple-400 border-purple-500/20 px-2 py-0.5 rounded text-[10px] font-bold mr-1">VACT</span> <span class="badge-level-basic text-[10px] font-bold px-2 py-0.5 rounded-lg border ml-2">Cơ Bản</span>
+                    </div>
+                 </div>
+               </div>
+               
+               <div class="flex items-center gap-3">
+                  
+            <div class="flex gap-2 shrink-0">
+               <a href="https://drive.google.com/file/d/11TN3XA3fOqT4D6eJGInXgk98t_7iSzVs/view?usp=drivesdk" target="_blank" class="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-white text-xs font-bold rounded-lg transition" title="Xem"><i class="fas fa-play"></i> </a>
+               
+               <a href="https://drive.google.com/file/d/13nTq0vT8sHYz1JUxu5ytRRubbgroecL0/view?usp=drivesdk" target="_blank" class="px-3 py-1.5 bg-primary hover:bg-primaryDark text-white text-xs font-bold rounded-lg transition "><i class="fas fa-dumbbell"></i> </a>
+               
+            </div>
+           
+                  <button onclick="event.stopPropagation(); toggleFav(1767035091741)" class="text-gray-500 hover:text-yellow-400 transition" title="Lưu"><i class="far fa-star"></i></button>
+                  <button onclick="event.stopPropagation(); editLesson(1767035091741)" class="text-blue-500 hover:text-blue-400" title="Sửa"><i class="fas fa-pen"></i></button> <button onclick="event.stopPropagation(); deleteLesson(1767035091741)" class="text-red-500 hover:text-red-400" title="Xóa"><i class="fas fa-trash"></i></button>
+               </div>
+            </div>
+           
+            <div class="bg-cardBg border border-white/5 hover:border-primary/50 px-4 py-3 rounded-xl flex items-center justify-between gap-3 group relative transition ">
+               <div class="flex items-center gap-3 min-w-0">
+                 <i class="fas fa-circle text-white/10 text-xs shrink-0 cursor-pointer hover:text-green-500 transition" onclick="event.stopPropagation(); toggleDone(1767072041950)"></i>
+                 <div class="min-w-0">
+                    <div class="flex items-center gap-2">
+                       <h3 class="font-bold text-sm text-gray-200 truncate group-hover:text-primary transition">Tìm n số hạng đầu của 1 số cực lớn</h3>
+                       
+                       
+                    </div>
+                    <div class="flex items-center gap-1 mt-0.5 text-[10px] opacity-70">
+                       <span class="badge-target bg-red-500/10 text-red-400 border-red-500/20 px-2 py-0.5 rounded text-[10px] font-bold mr-1">TSA</span><span class="badge-target bg-green-500/10 text-green-400 border-green-500/20 px-2 py-0.5 rounded text-[10px] font-bold mr-1">HSA</span><span class="badge-target bg-purple-500/10 text-purple-400 border-purple-500/20 px-2 py-0.5 rounded text-[10px] font-bold mr-1">VACT</span> <span class="badge-level-strong text-[10px] font-bold px-2 py-0.5 rounded-lg border ml-2">Mạnhhh</span>
+                    </div>
+                 </div>
+               </div>
+               
+               <div class="flex items-center gap-3">
+                  
+            <div class="flex gap-2 shrink-0">
+               <a href="https://drive.google.com/file/d/1sPfJ7pNVLbDQrqPI7psHbE9zpYFcxxu6/view?usp=drive_link" target="_blank" class="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-white text-xs font-bold rounded-lg transition" title="Xem"><i class="fas fa-play"></i> </a>
+               
+               <a href="https://drive.google.com/file/d/19GiawYBokMVrdd5PI8IszTdGe7XNv_Xi/view?usp=drivesdk" target="_blank" class="px-3 py-1.5 bg-primary hover:bg-primaryDark text-white text-xs font-bold rounded-lg transition "><i class="fas fa-dumbbell"></i> </a>
+               
+            </div>
+           
+                  <button onclick="event.stopPropagation(); toggleFav(1767072041950)" class="text-gray-500 hover:text-yellow-400 transition" title="Lưu"><i class="far fa-star"></i></button>
+                  <button onclick="event.stopPropagation(); editLesson(1767072041950)" class="text-blue-500 hover:text-blue-400" title="Sửa"><i class="fas fa-pen"></i></button> <button onclick="event.stopPropagation(); deleteLesson(1767072041950)" class="text-red-500 hover:text-red-400" title="Xóa"><i class="fas fa-trash"></i></button>
+               </div>
+            </div>
+           
+            <div class="bg-cardBg border border-white/5 hover:border-primary/50 px-4 py-3 rounded-xl flex items-center justify-between gap-3 group relative transition ">
+               <div class="flex items-center gap-3 min-w-0">
+                 <i class="fas fa-circle text-white/10 text-xs shrink-0 cursor-pointer hover:text-green-500 transition" onclick="event.stopPropagation(); toggleDone(1767072085993)"></i>
+                 <div class="min-w-0">
+                    <div class="flex items-center gap-2">
+                       <h3 class="font-bold text-sm text-gray-200 truncate group-hover:text-primary transition">Tìm 1,2,3,4,... chữ số tận cùng của mũ to (có quy luật)</h3>
+                       
+                       
+                    </div>
+                    <div class="flex items-center gap-1 mt-0.5 text-[10px] opacity-70">
+                       <span class="badge-target bg-red-500/10 text-red-400 border-red-500/20 px-2 py-0.5 rounded text-[10px] font-bold mr-1">TSA</span><span class="badge-target bg-purple-500/10 text-purple-400 border-purple-500/20 px-2 py-0.5 rounded text-[10px] font-bold mr-1">VACT</span> <span class="badge-level-apply text-[10px] font-bold px-2 py-0.5 rounded-lg border ml-2">Vận Dụng</span>
+                    </div>
+                 </div>
+               </div>
+               
+               <div class="flex items-center gap-3">
+                  
+            <div class="flex gap-2 shrink-0">
+               <a href="https://drive.google.com/file/d/1GRdLDJvq3yXI75Pp-DgUVcwHfpNUdsCE/view?usp=drive_link" target="_blank" class="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-white text-xs font-bold rounded-lg transition" title="Xem"><i class="fas fa-play"></i> </a>
+               
+               <a href="https://drive.google.com/file/d/1nkeUnGXAvk6crM6pFyiUunWOZizvFP97/view?usp=drivesdk" target="_blank" class="px-3 py-1.5 bg-primary hover:bg-primaryDark text-white text-xs font-bold rounded-lg transition "><i class="fas fa-dumbbell"></i> </a>
+               
+            </div>
+           
+                  <button onclick="event.stopPropagation(); toggleFav(1767072085993)" class="text-gray-500 hover:text-yellow-400 transition" title="Lưu"><i class="far fa-star"></i></button>
+                  <button onclick="event.stopPropagation(); editLesson(1767072085993)" class="text-blue-500 hover:text-blue-400" title="Sửa"><i class="fas fa-pen"></i></button> <button onclick="event.stopPropagation(); deleteLesson(1767072085993)" class="text-red-500 hover:text-red-400" title="Xóa"><i class="fas fa-trash"></i></button>
+               </div>
+            </div>
+           
+            <div class="bg-cardBg border border-white/5 hover:border-primary/50 px-4 py-3 rounded-xl flex items-center justify-between gap-3 group relative transition ">
+               <div class="flex items-center gap-3 min-w-0">
+                 <i class="fas fa-circle text-white/10 text-xs shrink-0 cursor-pointer hover:text-green-500 transition" onclick="event.stopPropagation(); toggleDone(1767072200628)"></i>
+                 <div class="min-w-0">
+                    <div class="flex items-center gap-2">
+                       <h3 class="font-bold text-sm text-gray-200 truncate group-hover:text-primary transition">Tìm 1,2,3,4,... chữ số tận cùng của mũ to (khó kiếm quy luật)</h3>
+                       
+                       
+                    </div>
+                    <div class="flex items-center gap-1 mt-0.5 text-[10px] opacity-70">
+                       <span class="badge-target bg-red-500/10 text-red-400 border-red-500/20 px-2 py-0.5 rounded text-[10px] font-bold mr-1">TSA</span><span class="badge-target bg-purple-500/10 text-purple-400 border-purple-500/20 px-2 py-0.5 rounded text-[10px] font-bold mr-1">VACT</span> <span class="badge-level-strong text-[10px] font-bold px-2 py-0.5 rounded-lg border ml-2">Mạnhhh</span>
+                    </div>
+                 </div>
+               </div>
+               
+               <div class="flex items-center gap-3">
+                  
+            <div class="flex gap-2 shrink-0">
+               <a href="https://drive.google.com/file/d/14ONscIjFdaTidxK1ivlZS-EGdkVG_7YJ/view?usp=drive_link" target="_blank" class="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-white text-xs font-bold rounded-lg transition" title="Xem"><i class="fas fa-play"></i> </a>
+               
+               <a href="https://drive.google.com/file/d/1nkeUnGXAvk6crM6pFyiUunWOZizvFP97/view?usp=drivesdk" target="_blank" class="px-3 py-1.5 bg-primary hover:bg-primaryDark text-white text-xs font-bold rounded-lg transition "><i class="fas fa-dumbbell"></i> </a>
+               
+            </div>
+           
+                  <button onclick="event.stopPropagation(); toggleFav(1767072200628)" class="text-gray-500 hover:text-yellow-400 transition" title="Lưu"><i class="far fa-star"></i></button>
+                  <button onclick="event.stopPropagation(); editLesson(1767072200628)" class="text-blue-500 hover:text-blue-400" title="Sửa"><i class="fas fa-pen"></i></button> <button onclick="event.stopPropagation(); deleteLesson(1767072200628)" class="text-red-500 hover:text-red-400" title="Xóa"><i class="fas fa-trash"></i></button>
+               </div>
+            </div>
+           
+            <div class="bg-cardBg border border-white/5 hover:border-primary/50 px-4 py-3 rounded-xl flex items-center justify-between gap-3 group relative transition ">
+               <div class="flex items-center gap-3 min-w-0">
+                 <i class="fas fa-circle text-white/10 text-xs shrink-0 cursor-pointer hover:text-green-500 transition" onclick="event.stopPropagation(); toggleDone(1767072214025)"></i>
+                 <div class="min-w-0">
+                    <div class="flex items-center gap-2">
+                       <h3 class="font-bold text-sm text-gray-200 truncate group-hover:text-primary transition">Tìm 1,2,3,4... cstc của mũ to (vip)</h3>
+                       
+                       
+                    </div>
+                    <div class="flex items-center gap-1 mt-0.5 text-[10px] opacity-70">
+                       <span class="badge-target bg-red-500/10 text-red-400 border-red-500/20 px-2 py-0.5 rounded text-[10px] font-bold mr-1">TSA</span><span class="badge-target bg-purple-500/10 text-purple-400 border-purple-500/20 px-2 py-0.5 rounded text-[10px] font-bold mr-1">VACT</span> <span class="badge-level-vip text-[10px] font-bold px-2 py-0.5 rounded-lg border ml-2">Vip</span>
+                    </div>
+                 </div>
+               </div>
+               
+               <div class="flex items-center gap-3">
+                  
+            <div class="flex gap-2 shrink-0">
+               <a href="https://drive.google.com/file/d/1uW7VCTOhNnx3Gl-7laljVUdCQcZAWzW8/view?usp=drive_link" target="_blank" class="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-white text-xs font-bold rounded-lg transition" title="Xem"><i class="fas fa-play"></i> </a>
+               
+               <a href="https://gemini.google.com/share/0b97e4378140" target="_blank" class="px-3 py-1.5 bg-primary hover:bg-primaryDark text-white text-xs font-bold rounded-lg transition "><i class="fas fa-dumbbell"></i> </a>
+               
+            </div>
+           
+                  <button onclick="event.stopPropagation(); toggleFav(1767072214025)" class="text-gray-500 hover:text-yellow-400 transition" title="Lưu"><i class="far fa-star"></i></button>
+                  <button onclick="event.stopPropagation(); editLesson(1767072214025)" class="text-blue-500 hover:text-blue-400" title="Sửa"><i class="fas fa-pen"></i></button> <button onclick="event.stopPropagation(); deleteLesson(1767072214025)" class="text-red-500 hover:text-red-400" title="Xóa"><i class="fas fa-trash"></i></button>
+               </div>
+            </div>
+           
+            <div class="bg-cardBg border border-white/5 hover:border-primary/50 px-4 py-3 rounded-xl flex items-center justify-between gap-3 group relative transition ">
+               <div class="flex items-center gap-3 min-w-0">
+                 <i class="fas fa-circle text-white/10 text-xs shrink-0 cursor-pointer hover:text-green-500 transition" onclick="event.stopPropagation(); toggleDone(1767072231034)"></i>
+                 <div class="min-w-0">
+                    <div class="flex items-center gap-2">
+                       <h3 class="font-bold text-sm text-gray-200 truncate group-hover:text-primary transition">Tìm số chữ số của số mũ lớn</h3>
+                       
+                       
+                    </div>
+                    <div class="flex items-center gap-1 mt-0.5 text-[10px] opacity-70">
+                       <span class="badge-target bg-red-500/10 text-red-400 border-red-500/20 px-2 py-0.5 rounded text-[10px] font-bold mr-1">TSA</span><span class="badge-target bg-purple-500/10 text-purple-400 border-purple-500/20 px-2 py-0.5 rounded text-[10px] font-bold mr-1">VACT</span> <span class="badge-level-apply text-[10px] font-bold px-2 py-0.5 rounded-lg border ml-2">Vận Dụng</span>
+                    </div>
+                 </div>
+               </div>
+               
+               <div class="flex items-center gap-3">
+                  
+            <div class="flex gap-2 shrink-0">
+               <a href="https://drive.google.com/file/d/1W9vHtlWkbfzzNpSY47c0L8Foh3ygU-ra/view?usp=drive_link" target="_blank" class="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-white text-xs font-bold rounded-lg transition" title="Xem"><i class="fas fa-play"></i> </a>
+               
+               <a href="https://gemini.google.com/share/945516a11748" target="_blank" class="px-3 py-1.5 bg-primary hover:bg-primaryDark text-white text-xs font-bold rounded-lg transition "><i class="fas fa-dumbbell"></i> </a>
+               
+            </div>
+           
+                  <button onclick="event.stopPropagation(); toggleFav(1767072231034)" class="text-gray-500 hover:text-yellow-400 transition" title="Lưu"><i class="far fa-star"></i></button>
+                  <button onclick="event.stopPropagation(); editLesson(1767072231034)" class="text-blue-500 hover:text-blue-400" title="Sửa"><i class="fas fa-pen"></i></button> <button onclick="event.stopPropagation(); deleteLesson(1767072231034)" class="text-red-500 hover:text-red-400" title="Xóa"><i class="fas fa-trash"></i></button>
+               </div>
+            </div>
+           
+            <div class="bg-cardBg border border-white/5 hover:border-primary/50 px-4 py-3 rounded-xl flex items-center justify-between gap-3 group relative transition ">
+               <div class="flex items-center gap-3 min-w-0">
+                 <i class="fas fa-circle text-white/10 text-xs shrink-0 cursor-pointer hover:text-green-500 transition" onclick="event.stopPropagation(); toggleDone(1767072240476)"></i>
+                 <div class="min-w-0">
+                    <div class="flex items-center gap-2">
+                       <h3 class="font-bold text-sm text-gray-200 truncate group-hover:text-primary transition">Tìm số chữ số của n!</h3>
+                       
+                       
+                    </div>
+                    <div class="flex items-center gap-1 mt-0.5 text-[10px] opacity-70">
+                       <span class="badge-target bg-red-500/10 text-red-400 border-red-500/20 px-2 py-0.5 rounded text-[10px] font-bold mr-1">TSA</span><span class="badge-target bg-purple-500/10 text-purple-400 border-purple-500/20 px-2 py-0.5 rounded text-[10px] font-bold mr-1">VACT</span> <span class="badge-level-apply text-[10px] font-bold px-2 py-0.5 rounded-lg border ml-2">Vận Dụng</span>
+                    </div>
+                 </div>
+               </div>
+               
+               <div class="flex items-center gap-3">
+                  
+            <div class="flex gap-2 shrink-0">
+               <a href="https://drive.google.com/file/d/1Jagut2SasvYf06UhJ1ciwK0T2SjR61lB/view?usp=drive_link" target="_blank" class="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-white text-xs font-bold rounded-lg transition" title="Xem"><i class="fas fa-play"></i> </a>
+               
+               <a href="https://gemini.google.com/share/18439bdc3abf" target="_blank" class="px-3 py-1.5 bg-primary hover:bg-primaryDark text-white text-xs font-bold rounded-lg transition "><i class="fas fa-dumbbell"></i> </a>
+               
+            </div>
+           
+                  <button onclick="event.stopPropagation(); toggleFav(1767072240476)" class="text-gray-500 hover:text-yellow-400 transition" title="Lưu"><i class="far fa-star"></i></button>
+                  <button onclick="event.stopPropagation(); editLesson(1767072240476)" class="text-blue-500 hover:text-blue-400" title="Sửa"><i class="fas fa-pen"></i></button> <button onclick="event.stopPropagation(); deleteLesson(1767072240476)" class="text-red-500 hover:text-red-400" title="Xóa"><i class="fas fa-trash"></i></button>
+               </div>
+            </div>
+           
+            <div class="bg-cardBg border border-white/5 hover:border-primary/50 px-4 py-3 rounded-xl flex items-center justify-between gap-3 group relative transition ">
+               <div class="flex items-center gap-3 min-w-0">
+                 <i class="fas fa-circle text-white/10 text-xs shrink-0 cursor-pointer hover:text-green-500 transition" onclick="event.stopPropagation(); toggleDone(1767072250680)"></i>
+                 <div class="min-w-0">
+                    <div class="flex items-center gap-2">
+                       <h3 class="font-bold text-sm text-gray-200 truncate group-hover:text-primary transition">Casio đồng dư 15s (Hàng Xịn)</h3>
+                       
+                       
+                    </div>
+                    <div class="flex items-center gap-1 mt-0.5 text-[10px] opacity-70">
+                       <span class="badge-target bg-red-500/10 text-red-400 border-red-500/20 px-2 py-0.5 rounded text-[10px] font-bold mr-1">TSA</span><span class="badge-target bg-purple-500/10 text-purple-400 border-purple-500/20 px-2 py-0.5 rounded text-[10px] font-bold mr-1">VACT</span> <span class="badge-level-vip text-[10px] font-bold px-2 py-0.5 rounded-lg border ml-2">Vip</span>
+                    </div>
+                 </div>
+               </div>
+               
+               <div class="flex items-center gap-3">
+                  
+            <div class="flex gap-2 shrink-0">
+               <a href="https://drive.google.com/file/d/1998de5gZLXQ13ZnZ-8FKmxSIOd9vCTV4/view?usp=drivesdk" target="_blank" class="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-white text-xs font-bold rounded-lg transition" title="Xem"><i class="fas fa-play"></i> </a>
+               
+               <a href="https://gemini.google.com/share/fd636801ec9a" target="_blank" class="px-3 py-1.5 bg-primary hover:bg-primaryDark text-white text-xs font-bold rounded-lg transition "><i class="fas fa-dumbbell"></i> </a>
+               
+            </div>
+           
+                  <button onclick="event.stopPropagation(); toggleFav(1767072250680)" class="text-gray-500 hover:text-yellow-400 transition" title="Lưu"><i class="far fa-star"></i></button>
+                  <button onclick="event.stopPropagation(); editLesson(1767072250680)" class="text-blue-500 hover:text-blue-400" title="Sửa"><i class="fas fa-pen"></i></button> <button onclick="event.stopPropagation(); deleteLesson(1767072250680)" class="text-red-500 hover:text-red-400" title="Xóa"><i class="fas fa-trash"></i></button>
+               </div>
+            </div>
+           
+            <div class="bg-cardBg border border-white/5 hover:border-primary/50 px-4 py-3 rounded-xl flex items-center justify-between gap-3 group relative transition ">
+               <div class="flex items-center gap-3 min-w-0">
+                 <i class="fas fa-circle text-white/10 text-xs shrink-0 cursor-pointer hover:text-green-500 transition" onclick="event.stopPropagation(); toggleDone(1767072258804)"></i>
+                 <div class="min-w-0">
+                    <div class="flex items-center gap-2">
+                       <h3 class="font-bold text-sm text-gray-200 truncate group-hover:text-primary transition">Tìm số dư</h3>
+                       
+                       
+                    </div>
+                    <div class="flex items-center gap-1 mt-0.5 text-[10px] opacity-70">
+                       <span class="badge-target bg-red-500/10 text-red-400 border-red-500/20 px-2 py-0.5 rounded text-[10px] font-bold mr-1">TSA</span><span class="badge-target bg-purple-500/10 text-purple-400 border-purple-500/20 px-2 py-0.5 rounded text-[10px] font-bold mr-1">VACT</span> <span class="badge-level-vip text-[10px] font-bold px-2 py-0.5 rounded-lg border ml-2">Vip</span>
+                    </div>
+                 </div>
+               </div>
+               
+               <div class="flex items-center gap-3">
+                  
+            <div class="flex gap-2 shrink-0">
+               <a href="https://drive.google.com/file/d/1Yg-fcljkLeyt5u8zN9SFOd6JWrytdNrZ/view?usp=drive_link" target="_blank" class="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-white text-xs font-bold rounded-lg transition" title="Xem"><i class="fas fa-play"></i> </a>
+               
+               <a href="https://gemini.google.com/share/fd636801ec9a" target="_blank" class="px-3 py-1.5 bg-primary hover:bg-primaryDark text-white text-xs font-bold rounded-lg transition "><i class="fas fa-dumbbell"></i> </a>
+               
+            </div>
+           
+                  <button onclick="event.stopPropagation(); toggleFav(1767072258804)" class="text-gray-500 hover:text-yellow-400 transition" title="Lưu"><i class="far fa-star"></i></button>
+                  <button onclick="event.stopPropagation(); editLesson(1767072258804)" class="text-blue-500 hover:text-blue-400" title="Sửa"><i class="fas fa-pen"></i></button> <button onclick="event.stopPropagation(); deleteLesson(1767072258804)" class="text-red-500 hover:text-red-400" title="Xóa"><i class="fas fa-trash"></i></button>
+               </div>
+            </div>
+           
+            <div class="bg-cardBg border border-white/5 hover:border-primary/50 px-4 py-3 rounded-xl flex items-center justify-between gap-3 group relative transition ">
+               <div class="flex items-center gap-3 min-w-0">
+                 <i class="fas fa-circle text-white/10 text-xs shrink-0 cursor-pointer hover:text-green-500 transition" onclick="event.stopPropagation(); toggleDone(1767072268407)"></i>
+                 <div class="min-w-0">
+                    <div class="flex items-center gap-2">
+                       <h3 class="font-bold text-sm text-gray-200 truncate group-hover:text-primary transition">Tìm số tự nhiên thỏa mãn khi chia a dư b, chia c dư d, ....</h3>
+                       
+                       
+                    </div>
+                    <div class="flex items-center gap-1 mt-0.5 text-[10px] opacity-70">
+                       <span class="badge-target bg-red-500/10 text-red-400 border-red-500/20 px-2 py-0.5 rounded text-[10px] font-bold mr-1">TSA</span><span class="badge-target bg-green-500/10 text-green-400 border-green-500/20 px-2 py-0.5 rounded text-[10px] font-bold mr-1">HSA</span><span class="badge-target bg-purple-500/10 text-purple-400 border-purple-500/20 px-2 py-0.5 rounded text-[10px] font-bold mr-1">VACT</span> <span class="badge-level-vip text-[10px] font-bold px-2 py-0.5 rounded-lg border ml-2">Vip</span>
+                    </div>
+                 </div>
+               </div>
+               
+               <div class="flex items-center gap-3">
+                  
+            <div class="flex gap-2 shrink-0">
+               <a href="https://drive.google.com/file/d/1euaCDI-IimolA2TvWGJEBA-PNQ2w2Ai7/view?usp=drivesdk" target="_blank" class="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-white text-xs font-bold rounded-lg transition" title="Xem"><i class="fas fa-play"></i> </a>
+               
+               <a href="https://gemini.google.com/share/c6d4383a9312" target="_blank" class="px-3 py-1.5 bg-primary hover:bg-primaryDark text-white text-xs font-bold rounded-lg transition "><i class="fas fa-dumbbell"></i> </a>
+               
+            </div>
+           
+                  <button onclick="event.stopPropagation(); toggleFav(1767072268407)" class="text-gray-500 hover:text-yellow-400 transition" title="Lưu"><i class="far fa-star"></i></button>
+                  <button onclick="event.stopPropagation(); editLesson(1767072268407)" class="text-blue-500 hover:text-blue-400" title="Sửa"><i class="fas fa-pen"></i></button> <button onclick="event.stopPropagation(); deleteLesson(1767072268407)" class="text-red-500 hover:text-red-400" title="Xóa"><i class="fas fa-trash"></i></button>
+               </div>
+            </div>
+           
+            <div class="bg-cardBg border border-white/5 hover:border-primary/50 px-4 py-3 rounded-xl flex items-center justify-between gap-3 group relative transition ">
+               <div class="flex items-center gap-3 min-w-0">
+                 <i class="fas fa-circle text-white/10 text-xs shrink-0 cursor-pointer hover:text-green-500 transition" onclick="event.stopPropagation(); toggleDone(1767072275731)"></i>
+                 <div class="min-w-0">
+                    <div class="flex items-center gap-2">
+                       <h3 class="font-bold text-sm text-gray-200 truncate group-hover:text-primary transition">Tìm số nguyên tố thỏa mãn</h3>
+                       
+                       
+                    </div>
+                    <div class="flex items-center gap-1 mt-0.5 text-[10px] opacity-70">
+                       <span class="badge-target bg-red-500/10 text-red-400 border-red-500/20 px-2 py-0.5 rounded text-[10px] font-bold mr-1">TSA</span><span class="badge-target bg-purple-500/10 text-purple-400 border-purple-500/20 px-2 py-0.5 rounded text-[10px] font-bold mr-1">VACT</span> <span class="badge-level-apply text-[10px] font-bold px-2 py-0.5 rounded-lg border ml-2">Vận Dụng</span>
+                    </div>
+                 </div>
+               </div>
+               
+               <div class="flex items-center gap-3">
+                  
+            <div class="flex gap-2 shrink-0">
+               <a href="https://drive.google.com/file/d/1lFas-qEaJT3DWzVCzJb3bZZW-V--roXw/view?usp=drive_link" target="_blank" class="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-white text-xs font-bold rounded-lg transition" title="Xem"><i class="fas fa-play"></i> </a>
+               
+               <a href="https://gemini.google.com/share/70b731a159a3" target="_blank" class="px-3 py-1.5 bg-primary hover:bg-primaryDark text-white text-xs font-bold rounded-lg transition "><i class="fas fa-dumbbell"></i> </a>
+               
+            </div>
+           
+                  <button onclick="event.stopPropagation(); toggleFav(1767072275731)" class="text-gray-500 hover:text-yellow-400 transition" title="Lưu"><i class="far fa-star"></i></button>
+                  <button onclick="event.stopPropagation(); editLesson(1767072275731)" class="text-blue-500 hover:text-blue-400" title="Sửa"><i class="fas fa-pen"></i></button> <button onclick="event.stopPropagation(); deleteLesson(1767072275731)" class="text-red-500 hover:text-red-400" title="Xóa"><i class="fas fa-trash"></i></button>
+               </div>
+            </div>
+           
+            <div class="bg-cardBg border border-white/5 hover:border-primary/50 px-4 py-3 rounded-xl flex items-center justify-between gap-3 group relative transition ">
+               <div class="flex items-center gap-3 min-w-0">
+                 <i class="fas fa-circle text-white/10 text-xs shrink-0 cursor-pointer hover:text-green-500 transition" onclick="event.stopPropagation(); toggleDone(1767072283962)"></i>
+                 <div class="min-w-0">
+                    <div class="flex items-center gap-2">
+                       <h3 class="font-bold text-sm text-gray-200 truncate group-hover:text-primary transition">Bổ Trợ Số Học TSA  🐣</h3>
+                       
+                       
+                    </div>
+                    <div class="flex items-center gap-1 mt-0.5 text-[10px] opacity-70">
+                       <span class="badge-target bg-red-500/10 text-red-400 border-red-500/20 px-2 py-0.5 rounded text-[10px] font-bold mr-1">TSA</span> <span class="badge-level-vip text-[10px] font-bold px-2 py-0.5 rounded-lg border ml-2">Vip</span>
+                    </div>
+                 </div>
+               </div>
+               
+               <div class="flex items-center gap-3">
+                  
+            <div class="flex gap-2 shrink-0">
+               <a href="https://drive.google.com/file/d/1a0WZIJj3dkYZB6Cc2f41Y3M1ICjpsnmA/view?usp=drivesdk" target="_blank" class="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-white text-xs font-bold rounded-lg transition" title="Xem"><i class="fas fa-play"></i> </a>
+               
+               <a href="https://drive.google.com/file/d/13hlOjQ5pbLC7_GfNmhVShv5vYL06EBpk/view?usp=drivesdk" target="_blank" class="px-3 py-1.5 bg-primary hover:bg-primaryDark text-white text-xs font-bold rounded-lg transition "><i class="fas fa-dumbbell"></i> </a>
+               
+            </div>
+           
+                  <button onclick="event.stopPropagation(); toggleFav(1767072283962)" class="text-gray-500 hover:text-yellow-400 transition" title="Lưu"><i class="far fa-star"></i></button>
+                  <button onclick="event.stopPropagation(); editLesson(1767072283962)" class="text-blue-500 hover:text-blue-400" title="Sửa"><i class="fas fa-pen"></i></button> <button onclick="event.stopPropagation(); deleteLesson(1767072283962)" class="text-red-500 hover:text-red-400" title="Xóa"><i class="fas fa-trash"></i></button>
+               </div>
+            </div>
+           
+            <div class="bg-cardBg border border-white/5 hover:border-primary/50 px-4 py-3 rounded-xl flex items-center justify-between gap-3 group relative transition ">
+               <div class="flex items-center gap-3 min-w-0">
+                 <i class="fas fa-circle text-white/10 text-xs shrink-0 cursor-pointer hover:text-green-500 transition" onclick="event.stopPropagation(); toggleDone(1767072291023)"></i>
+                 <div class="min-w-0">
+                    <div class="flex items-center gap-2">
+                       <h3 class="font-bold text-sm text-gray-200 truncate group-hover:text-primary transition">Tìm Số Ước</h3>
+                       
+                       
+                    </div>
+                    <div class="flex items-center gap-1 mt-0.5 text-[10px] opacity-70">
+                       <span class="badge-target bg-red-500/10 text-red-400 border-red-500/20 px-2 py-0.5 rounded text-[10px] font-bold mr-1">TSA</span><span class="badge-target bg-green-500/10 text-green-400 border-green-500/20 px-2 py-0.5 rounded text-[10px] font-bold mr-1">HSA</span><span class="badge-target bg-purple-500/10 text-purple-400 border-purple-500/20 px-2 py-0.5 rounded text-[10px] font-bold mr-1">VACT</span> <span class="badge-level-apply text-[10px] font-bold px-2 py-0.5 rounded-lg border ml-2">Vận Dụng</span>
+                    </div>
+                 </div>
+               </div>
+               
+               <div class="flex items-center gap-3">
+                  
+            <div class="flex gap-2 shrink-0">
+               <a href="https://drive.google.com/file/d/1TmHMfnk_henoFKpNAVC_IMlwr2xNEuoA/view?usp=drivesdk" target="_blank" class="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-white text-xs font-bold rounded-lg transition" title="Xem"><i class="fas fa-play"></i> </a>
+               
+               <a href="https://gemini.google.com/share/4ccc1f901409" target="_blank" class="px-3 py-1.5 bg-primary hover:bg-primaryDark text-white text-xs font-bold rounded-lg transition "><i class="fas fa-dumbbell"></i> </a>
+               
+            </div>
+           
+                  <button onclick="event.stopPropagation(); toggleFav(1767072291023)" class="text-gray-500 hover:text-yellow-400 transition" title="Lưu"><i class="far fa-star"></i></button>
+                  <button onclick="event.stopPropagation(); editLesson(1767072291023)" class="text-blue-500 hover:text-blue-400" title="Sửa"><i class="fas fa-pen"></i></button> <button onclick="event.stopPropagation(); deleteLesson(1767072291023)" class="text-red-500 hover:text-red-400" title="Xóa"><i class="fas fa-trash"></i></button>
+               </div>
+            </div>
+           
+            <div class="bg-cardBg border border-white/5 hover:border-primary/50 px-4 py-3 rounded-xl flex items-center justify-between gap-3 group relative transition ">
+               <div class="flex items-center gap-3 min-w-0">
+                 <i class="fas fa-circle text-white/10 text-xs shrink-0 cursor-pointer hover:text-green-500 transition" onclick="event.stopPropagation(); toggleDone(1767072299131)"></i>
+                 <div class="min-w-0">
+                    <div class="flex items-center gap-2">
+                       <h3 class="font-bold text-sm text-gray-200 truncate group-hover:text-primary transition">Tổng các ước nguyên chẵn lẻ</h3>
+                       
+                       
+                    </div>
+                    <div class="flex items-center gap-1 mt-0.5 text-[10px] opacity-70">
+                       <span class="badge-target bg-red-500/10 text-red-400 border-red-500/20 px-2 py-0.5 rounded text-[10px] font-bold mr-1">TSA</span><span class="badge-target bg-green-500/10 text-green-400 border-green-500/20 px-2 py-0.5 rounded text-[10px] font-bold mr-1">HSA</span><span class="badge-target bg-purple-500/10 text-purple-400 border-purple-500/20 px-2 py-0.5 rounded text-[10px] font-bold mr-1">VACT</span> <span class="badge-level-strong text-[10px] font-bold px-2 py-0.5 rounded-lg border ml-2">Mạnhhh</span>
+                    </div>
+                 </div>
+               </div>
+               
+               <div class="flex items-center gap-3">
+                  
+            <div class="flex gap-2 shrink-0">
+               <a href="https://drive.google.com/file/d/1xvf8dF_KT3aq_ZLlVfxoXoYkQVTgVyxZ/view?usp=drivesdk" target="_blank" class="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-white text-xs font-bold rounded-lg transition" title="Xem"><i class="fas fa-play"></i> </a>
+               
+               <a href="https://gemini.google.com/share/9ed7178aed6c" target="_blank" class="px-3 py-1.5 bg-primary hover:bg-primaryDark text-white text-xs font-bold rounded-lg transition "><i class="fas fa-dumbbell"></i> </a>
+               
+            </div>
+           
+                  <button onclick="event.stopPropagation(); toggleFav(1767072299131)" class="text-gray-500 hover:text-yellow-400 transition" title="Lưu"><i class="far fa-star"></i></button>
+                  <button onclick="event.stopPropagation(); editLesson(1767072299131)" class="text-blue-500 hover:text-blue-400" title="Sửa"><i class="fas fa-pen"></i></button> <button onclick="event.stopPropagation(); deleteLesson(1767072299131)" class="text-red-500 hover:text-red-400" title="Xóa"><i class="fas fa-trash"></i></button>
+               </div>
+            </div>
+           </div>
 
-      <div id="empty-msg" class="hidden text-center py-20 opacity-60">
+      <div id="empty-msg" class="text-center py-20 opacity-60 hidden">
         <i class="fas fa-folder-open text-6xl mb-4 text-gray-700"></i>
         <p class="text-gray-500">Chưa có bài nào. Admin vào thêm phát là cháy ngay.</p>
       </div>
     </section>
 
-    <!-- FAVORITES -->
     <section id="page-favorites" class="page-section container mx-auto px-4 py-10 max-w-4xl">
       <div class="flex items-end justify-between mb-6 border-b border-white/10 pb-4">
         <div>
@@ -362,7 +788,7 @@
           <h2 class="text-2xl md:text-4xl font-black uppercase tracking-wide">
             <i class="fas fa-bookmark text-primary mr-2"></i>Yêu thích
           </h2>
-          <p class="text-gray-400 text-sm mt-2">Mấy bài bạn ⭐ sẽ nằm hết ở đây. “Save là thắng”.</p>
+          <p class="text-gray-400 text-sm mt-2">Mấy bài bạn ⭐ sẽ nằm hết ở đây.</p>
         </div>
         <button onclick="clearFavorites()" class="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 transition text-xs font-bold text-gray-300 border border-white/10">
           Xóa hết
@@ -373,27 +799,25 @@
 
       <div id="fav-empty" class="hidden text-center py-20 opacity-60">
         <i class="fas fa-star text-6xl mb-4 text-gray-700"></i>
-        <p class="text-gray-500">Chưa có bài nào được ⭐. Đi lướt bài rồi lưu lại nha.</p>
+        <p class="text-gray-500">Chưa có bài nào được ⭐.</p>
       </div>
     </section>
 
   </main>
 
-  <!-- FOOTER -->
   <footer class="bg-black/40 border-t border-white/10 py-8 mt-auto backdrop-blur">
     <div class="container mx-auto px-4 flex flex-col sm:flex-row gap-4 justify-between items-center">
       <div class="text-xs text-gray-500 font-bold">© 2025 UEIH CASIO. Built with calculator energy.</div>
       <div class="flex gap-6">
-        <a id="social-fb" href="#" target="_blank" class="text-gray-400 hover:text-blue-500 text-xl transition transform hover:scale-110"><i class="fab fa-facebook"></i></a>
-        <a id="social-tt" href="#" target="_blank" class="text-gray-400 hover:text-white text-xl transition transform hover:scale-110"><i class="fab fa-tiktok"></i></a>
-        <a id="social-yt" href="#" target="_blank" class="text-gray-400 hover:text-red-500 text-xl transition transform hover:scale-110"><i class="fab fa-youtube"></i></a>
+        <a id="social-fb" href="https://www.facebook.com/ueih.7ron" target="_blank" class="text-gray-400 hover:text-blue-500 text-xl transition transform hover:scale-110"><i class="fab fa-facebook"></i></a>
+        <a id="social-tt" href="https://www.tiktok.com/@ueih.ron1609" target="_blank" class="text-gray-400 hover:text-white text-xl transition transform hover:scale-110"><i class="fab fa-tiktok"></i></a>
+        <a id="social-yt" href="https://youtube.com" target="_blank" class="text-gray-400 hover:text-red-500 text-xl transition transform hover:scale-110"><i class="fab fa-youtube"></i></a>
       </div>
     </div>
   </footer>
 
-  <!-- floating admin quick menu -->
   <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
-    <div id="admin-menu" class="hidden bg-cardBg border border-primary/30 p-3 rounded-2xl soft-shadow w-72">
+    <div id="admin-menu" class="bg-cardBg border border-primary/30 p-3 rounded-2xl soft-shadow w-72 animate-pop">
       <div class="text-[10px] font-black text-primary uppercase mb-2 tracking-widest border-b border-white/10 pb-1">Admin Mode</div>
       <button onclick="openConfigModal()" class="w-full text-left px-3 py-2 hover:bg-white/5 rounded-xl text-sm text-gray-300 hover:text-white">
         <i class="fas fa-pen w-5 text-primary"></i> Sửa giao diện
@@ -411,34 +835,31 @@
         <i class="fas fa-right-from-bracket w-5"></i> Thoát
       </button>
       <div class="mt-2 text-[11px] text-gray-500 leading-snug">
-        Lưu ý: admin password nằm trong code nên chỉ “khóa UI” thôi, không phải bảo mật real.
+        Lưu ý: admin password nằm trong code.
       </div>
     </div>
   </div>
 
-  <!-- TOAST -->
   <div id="toast-wrap" class="fixed top-4 right-4 z-[200] space-y-2"></div>
 
-  <!-- MODALS -->
-  <div id="add-modal" class="fixed inset-0 bg-black/80 z-[100] hidden items-center justify-center backdrop-blur-sm">
+  <div id="add-modal" class="fixed inset-0 bg-black/80 z-[100] items-center justify-center backdrop-blur-sm hidden">
     <div class="bg-cardBg p-6 rounded-2xl w-full max-w-md border border-white/10 soft-shadow animate-pop max-h-[90vh] overflow-y-auto">
-      <h3 id="modal-title" class="text-xl font-black text-white mb-4">Thêm Bài Mới</h3>
+      <h3 id="modal-title" class="text-xl font-black text-white mb-4">Chỉnh Sửa Bài</h3>
       <div class="space-y-4">
         <input type="text" id="inp-title" class="w-full p-3 bg-white/5 border border-white/10 rounded-2xl focus:border-primary outline-none text-white" placeholder="Tiêu đề bài học">
         
         <div>
-          <label id="lbl-link1" class="text-xs font-bold text-gray-400 block mb-1 uppercase">Link chính</label>
+          <label id="lbl-link1" class="text-xs font-bold text-gray-400 block mb-1 uppercase">Link Xem</label>
           <input type="text" id="inp-link" class="w-full p-3 bg-white/5 border border-white/10 rounded-2xl focus:border-primary outline-none text-white" placeholder="URL...">
         </div>
 
         <div id="div-link-giai">
-           <label id="lbl-link2" class="text-xs font-bold text-gray-400 block mb-1 uppercase">Link phụ</label>
+           <label id="lbl-link2" class="text-xs font-bold text-gray-400 block mb-1 uppercase">Link Luyện</label>
           <input type="text" id="inp-link-giai" class="w-full p-3 bg-white/5 border border-white/10 rounded-2xl focus:border-green-500 outline-none text-white" placeholder="URL...">
         </div>
 
         <input type="text" id="inp-desc" class="w-full p-3 bg-white/5 border border-white/10 rounded-2xl focus:border-primary outline-none text-white" placeholder="Mô tả ngắn">
 
-        <!-- New Meta Fields -->
         <div class="grid grid-cols-1 gap-3">
           <div>
             <label class="text-xs font-bold text-gray-400 block mb-1 uppercase">Mức độ Skill</label>
@@ -475,8 +896,8 @@
           <label class="block text-sm font-bold text-yellow-500 cursor-pointer">Chế độ Nháp (học sinh thấy bị khóa)</label>
         </div>
 
-        <input type="hidden" id="inp-cat-hidden">
-        <input type="hidden" id="inp-edit-id">
+        <input type="hidden" id="inp-cat-hidden" value="">
+        <input type="hidden" id="inp-edit-id" value="">
         <div class="flex gap-2">
           <button onclick="closeModal('add-modal')" class="flex-1 py-3 bg-white/5 hover:bg-white/10 text-white font-bold rounded-2xl">Hủy</button>
           <button onclick="saveLesson()" class="flex-1 py-3 bg-primary hover:bg-primaryDark text-white font-black rounded-2xl">Lưu Bài</button>
@@ -534,11 +955,8 @@
           <i class="fas fa-xmark"></i>
         </button>
       </div>
-
       <div class="text-xs text-gray-400 mb-4">Mỗi card: icon FontAwesome (vd: <span class="font-bold">fa-bolt</span>), title, desc.</div>
-
       <div id="homecards-editor" class="space-y-3"></div>
-
       <div class="flex gap-2 mt-5">
         <button onclick="addHomeCard()" class="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-sm font-bold">+ Thêm card</button>
         <button onclick="saveHomeCards()" class="flex-1 py-2 rounded-xl bg-yellow-500 hover:bg-yellow-400 text-black font-black">Lưu card</button>
@@ -556,24 +974,28 @@
       db: 'ueih_database',
       fav: 'ueih_favs',
       done: 'ueih_done',
-      homeCards: 'ueih_homecards'
+      homeCards: 'ueih_homecards',
+      viewMode: 'ueih_view_mode' // New: View Mode
     };
 
     // Default config
     let siteConfig = {"avatar":"https://scontent.fhan20-1.fna.fbcdn.net/v/t39.30808-6/555733813_810835077974194_4101748610057312325_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHDTdYqWdNFRjU8d2r5jAhjebOdWmQ9kbF5s51aZD2RsVt3gAla-o2NSldRE2u4LlyamgEm9bbvjTd0fQAskB83&_nc_ohc=j7pYsq1YFBIQ7kNvwGqVswS&_nc_oc=Adlz2s1APpaob9-hqj_UUypHn8eLkWbC-8zRqetZZ8lreC3w1g2GCzKFBPN2XtBmeX0&_nc_zt=23&_nc_ht=scontent.fhan20-1.fna&_nc_gid=kLhRTL2MoYzPK4ngUv-7zA&oh=00_AflDQh0Z0RhjS2cSJvz5BRhWHcCxjtV7wKug-AHH5fEuuA&oe=6958839A","logoText":"Ueih Casio","slogan":"Casio Lẹ Lẹ Rồi Chuyển Câu Thoi🐣","social":{"fb":"https://www.facebook.com/ueih.7ron","tt":"https://www.tiktok.com/@ueih.ron1609","yt":"https://youtube.com"}};
 
-    // Home cards (editable)
+    // Home cards
     let homeCards = [{"icon":"fa-bolt","color":"text-blue-400","bg":"bg-blue-900/30","border":"hover:border-blue-500/50","title":"Tốc Độ Ánh Sáng","desc":"Phương pháp bấm máy giúp tiết kiệm 70% thời gian làm bài."},{"icon":"fa-brain","color":"text-purple-400","bg":"bg-purple-900/30","border":"hover:border-purple-500/50","title":"Tư Duy Casio","desc":"Không chỉ là bấm máy, mà là tư duy giải toán trắc nghiệm."},{"icon":"fa-fire","color":"text-yellow-400","bg":"bg-yellow-900/30","border":"hover:border-yellow-500/50","title":"Độc Quyền Ueih","desc":"Các tuyệt chiêu chỉ được chia sẻ nội bộ tại đây."}];
 
+    // UPDATED CATEGORIES
     const categories = {
-      'casio-so-hoc': "Số Học ",
+      'casio-so-hoc': "Số Học",
+      'casio-dai-so': "Đại Số",             // Added
+      'casio-skill-manh': "Các Skill Mạnh", // Added
       'casio-ham-so': "Hàm Số & Đồ Thị",
       'casio-giai-tich': "Giải Tích",
       'casio-hinh-hoc': "Hình Học Oxyz",
       'casio-xac-suat': "Xác Suất & Tổ Hợp",
       'casio-hay-la': "Các Bài Toán Hay & Lạ",
 
-      'casio-880-so-hoc': "880 • Số Học ",
+      'casio-880-so-hoc': "880 • Số Học",
       'casio-880-ham-so': "880 • Hàm Số & Đồ Thị",
       'casio-880-giai-tich': "880 • Giải Tích",
       'casio-880-hinh-hoc': "880 • Hình Học Oxyz",
@@ -585,13 +1007,14 @@
       'exam-vact': "Đề VACT"
     };
 
-    // Default database
-    let database = [{"id":1767035091741,"cat":"casio-so-hoc","title":"Số chữ số 0 tận cùng của n!","link":"https://drive.google.com/file/d/11TN3XA3fOqT4D6eJGInXgk98t_7iSzVs/view?usp=drivesdk","linkGiai":"","desc":"Mẹo tính nhanh","status":"published","level":"Cơ Bản","targets":["TSA","VACT"]}];
+    // Database with existing data
+    let database = [{"id":1767035091741,"cat":"casio-so-hoc","title":"Số chữ số 0 tận cùng của n!","link":"https://drive.google.com/file/d/11TN3XA3fOqT4D6eJGInXgk98t_7iSzVs/view?usp=drivesdk","linkGiai":"https://drive.google.com/file/d/13nTq0vT8sHYz1JUxu5ytRRubbgroecL0/view?usp=drivesdk","desc":"","status":"published","level":"Cơ Bản","targets":["TSA","VACT"]},{"id":1767072041950,"cat":"casio-so-hoc","title":"Tìm n số hạng đầu của 1 số cực lớn","link":"https://drive.google.com/file/d/1sPfJ7pNVLbDQrqPI7psHbE9zpYFcxxu6/view?usp=drive_link","linkGiai":"https://drive.google.com/file/d/19GiawYBokMVrdd5PI8IszTdGe7XNv_Xi/view?usp=drivesdk","desc":"","status":"published","level":"Mạnhhh","targets":["TSA","HSA","VACT"]},{"id":1767072085993,"cat":"casio-so-hoc","title":"Tìm 1,2,3,4,... chữ số tận cùng của mũ to (có quy luật)","link":"https://drive.google.com/file/d/1GRdLDJvq3yXI75Pp-DgUVcwHfpNUdsCE/view?usp=drive_link","linkGiai":"https://drive.google.com/file/d/1nkeUnGXAvk6crM6pFyiUunWOZizvFP97/view?usp=drivesdk","desc":"","status":"published","level":"Vận Dụng","targets":["TSA","VACT"]},{"id":1767072200628,"cat":"casio-so-hoc","title":"Tìm 1,2,3,4,... chữ số tận cùng của mũ to (khó kiếm quy luật)","link":"https://drive.google.com/file/d/14ONscIjFdaTidxK1ivlZS-EGdkVG_7YJ/view?usp=drive_link","linkGiai":"https://drive.google.com/file/d/1nkeUnGXAvk6crM6pFyiUunWOZizvFP97/view?usp=drivesdk","desc":"","status":"published","level":"Mạnhhh","targets":["TSA","VACT"]},{"id":1767072214025,"cat":"casio-so-hoc","title":"Tìm 1,2,3,4... cstc của mũ to (vip)","link":"https://drive.google.com/file/d/1uW7VCTOhNnx3Gl-7laljVUdCQcZAWzW8/view?usp=drive_link","linkGiai":"https://gemini.google.com/share/0b97e4378140","desc":"","status":"published","level":"Vip","targets":["TSA","VACT"]},{"id":1767072231034,"cat":"casio-so-hoc","title":"Tìm số chữ số của số mũ lớn","link":"https://drive.google.com/file/d/1W9vHtlWkbfzzNpSY47c0L8Foh3ygU-ra/view?usp=drive_link","linkGiai":"https://gemini.google.com/share/945516a11748","desc":"","status":"published","level":"Vận Dụng","targets":["TSA","VACT"]},{"id":1767072240476,"cat":"casio-so-hoc","title":"Tìm số chữ số của n!","link":"https://drive.google.com/file/d/1Jagut2SasvYf06UhJ1ciwK0T2SjR61lB/view?usp=drive_link","linkGiai":"https://gemini.google.com/share/18439bdc3abf","desc":"","status":"published","level":"Vận Dụng","targets":["TSA","VACT"]},{"id":1767072250680,"cat":"casio-so-hoc","title":"Casio đồng dư 15s (Hàng Xịn)","link":"https://drive.google.com/file/d/1998de5gZLXQ13ZnZ-8FKmxSIOd9vCTV4/view?usp=drivesdk","linkGiai":"https://gemini.google.com/share/fd636801ec9a","desc":"","status":"published","level":"Vip","targets":["TSA","VACT"]},{"id":1767072258804,"cat":"casio-so-hoc","title":"Tìm số dư","link":"https://drive.google.com/file/d/1Yg-fcljkLeyt5u8zN9SFOd6JWrytdNrZ/view?usp=drive_link","linkGiai":"https://gemini.google.com/share/fd636801ec9a","desc":"","status":"published","level":"Vip","targets":["TSA","VACT"]},{"id":1767072268407,"cat":"casio-so-hoc","title":"Tìm số tự nhiên thỏa mãn khi chia a dư b, chia c dư d, ....","link":"https://drive.google.com/file/d/1euaCDI-IimolA2TvWGJEBA-PNQ2w2Ai7/view?usp=drivesdk","linkGiai":"https://gemini.google.com/share/c6d4383a9312","desc":"","status":"published","level":"Vip","targets":["TSA","HSA","VACT"]},{"id":1767072275731,"cat":"casio-so-hoc","title":"Tìm số nguyên tố thỏa mãn","link":"https://drive.google.com/file/d/1lFas-qEaJT3DWzVCzJb3bZZW-V--roXw/view?usp=drive_link","linkGiai":"https://gemini.google.com/share/70b731a159a3","desc":"","status":"published","level":"Vận Dụng","targets":["TSA","VACT"]},{"id":1767072283962,"cat":"casio-so-hoc","title":"Bổ Trợ Số Học TSA  🐣","link":"https://drive.google.com/file/d/1a0WZIJj3dkYZB6Cc2f41Y3M1ICjpsnmA/view?usp=drivesdk","linkGiai":"https://drive.google.com/file/d/13hlOjQ5pbLC7_GfNmhVShv5vYL06EBpk/view?usp=drivesdk","desc":"","status":"published","level":"Vip","targets":["TSA"]},{"id":1767072291023,"cat":"casio-so-hoc","title":"Tìm Số Ước","link":"https://drive.google.com/file/d/1TmHMfnk_henoFKpNAVC_IMlwr2xNEuoA/view?usp=drivesdk","linkGiai":"https://gemini.google.com/share/4ccc1f901409","desc":"","status":"published","level":"Vận Dụng","targets":["TSA","HSA","VACT"]},{"id":1767072299131,"cat":"casio-so-hoc","title":"Tổng các ước nguyên chẵn lẻ","link":"https://drive.google.com/file/d/1xvf8dF_KT3aq_ZLlVfxoXoYkQVTgVyxZ/view?usp=drivesdk","linkGiai":"https://gemini.google.com/share/9ed7178aed6c","desc":"","status":"published","level":"Mạnhhh","targets":["TSA","HSA","VACT"]}];
 
     let currentCat = '';
     let isAdmin = false;
     let favorites = new Set();
     let doneMap = {};
+    let viewMode = 'detail'; // detail | compact
 
     // =========================
     // HELPERS
@@ -627,7 +1050,7 @@
     }
 
     // =========================
-    // THEME
+    // THEME & VIEW MODE
     // =========================
     function applyTheme(theme) {
       const root = document.documentElement;
@@ -643,12 +1066,33 @@
       toast(next === 'light' ? 'Bật Light mode ✨' : 'Bật Dark mode 🌙', 'ok');
     }
 
+    function toggleViewMode(mode) {
+      viewMode = mode;
+      localStorage.setItem(LS.viewMode, mode);
+      
+      const btnDetail = document.getElementById('btn-view-detail');
+      const btnCompact = document.getElementById('btn-view-compact');
+
+      if (mode === 'detail') {
+        btnDetail.className = "w-9 h-9 flex items-center justify-center rounded-lg bg-primary text-white transition";
+        btnCompact.className = "w-9 h-9 flex items-center justify-center rounded-lg text-gray-400 hover:text-white transition";
+      } else {
+        btnDetail.className = "w-9 h-9 flex items-center justify-center rounded-lg text-gray-400 hover:text-white transition";
+        btnCompact.className = "w-9 h-9 flex items-center justify-center rounded-lg bg-primary text-white transition";
+      }
+
+      if (currentCat) renderList(currentCat);
+    }
+
     // =========================
     // LOAD/SAVE
     // =========================
     function loadState() {
       const theme = localStorage.getItem(LS.theme) || 'dark';
       applyTheme(theme);
+
+      viewMode = localStorage.getItem(LS.viewMode) || 'detail';
+      toggleViewMode(viewMode);
 
       const cfg = localStorage.getItem(LS.config);
       if(cfg) siteConfig = {...siteConfig, ...safeParse(cfg, siteConfig)};
@@ -678,10 +1122,11 @@
       if(!confirm("Reset localStorage? (sẽ mất dữ liệu đã lưu trên máy)")) return;
       Object.values(LS).forEach(k => localStorage.removeItem(k));
       toast("Đã reset dữ liệu máy. Refresh trang là về mặc định.", "warn");
+      setTimeout(() => location.reload(), 1000);
     }
 
     // =========================
-    // RENDER CONFIG + HOME CARDS
+    // RENDER
     // =========================
     function renderConfig() {
       document.getElementById('nav-avatar').src = siteConfig.avatar;
@@ -753,7 +1198,7 @@
     }
 
     // =========================
-    // FAVORITES + DONE
+    // LOGIC FAV / DONE
     // =========================
     function toggleFav(id) {
       if(favorites.has(id)) favorites.delete(id);
@@ -782,7 +1227,7 @@
     }
 
     // =========================
-    // RENDER LIST
+    // LIST RENDERING (UPDATED)
     // =========================
     function getLevelBadge(level) {
       if(!level) return '';
@@ -793,9 +1238,21 @@
       return `<span class="${cls} text-[10px] font-bold px-2 py-0.5 rounded-lg border ml-2">${level}</span>`;
     }
 
+    // UPDATED COLORS for TAGS
     function getTargetBadges(targets) {
       if(!Array.isArray(targets) || targets.length === 0) return '';
-      return targets.map(t => `<span class="badge-target">${t}</span>`).join(' ');
+      
+      const mapColor = {
+        'TSA': 'bg-red-500/10 text-red-400 border-red-500/20',     
+        'HSA': 'bg-green-500/10 text-green-400 border-green-500/20', 
+        'THPTQG': 'bg-blue-500/10 text-blue-400 border-blue-500/20', 
+        'VACT': 'bg-purple-500/10 text-purple-400 border-purple-500/20' 
+      };
+
+      return targets.map(t => {
+        const style = mapColor[t] || 'bg-white/5 text-gray-300 border-white/10';
+        return `<span class="badge-target ${style} px-2 py-0.5 rounded text-[10px] font-bold mr-1">${t}</span>`;
+      }).join('');
     }
 
     function computeProgress(catId) {
@@ -834,93 +1291,92 @@
       items.forEach(item => {
         const isDraft = (item.status === 'draft');
         const isLocked = isDraft && !isAdmin;
-
-        let cardClass = isLocked
-          ? "bg-white/5 border border-dashed border-white/20 p-5 rounded-2xl flex flex-col md:flex-row items-start md:items-center gap-4 locked-item relative"
-          : "bg-cardBg border border-white/10 hover:border-primary/50 p-5 rounded-2xl flex flex-col md:flex-row items-start md:items-center gap-4 transition group relative";
-        
-        if(isAdmin && isDraft) cardClass = "bg-yellow-900/10 border border-dashed border-yellow-500/50 p-5 rounded-2xl flex flex-col md:flex-row gap-4 relative";
-
         const favOn = favorites.has(item.id);
         const doneOn = !!doneMap[item.id];
-        const badge = isDraft ? `<span class="ml-2 px-2 py-0.5 rounded text-[10px] font-black bg-yellow-500 text-black">NHÁP</span>` : "";
-        const doneBadge = doneOn ? `<span class="ml-2 px-2 py-0.5 rounded text-[10px] font-black bg-green-500 text-black">DONE</span>` : "";
         
-        let buttonsHTML = '';
-        if(isLocked) {
-          buttonsHTML = `<div class="text-gray-500 text-sm italic"><i class="fas fa-lock mr-1"></i> Coming Soon</div>`;
-        } else if (isExam || isCasio) {
-          const btn1Label = isCasio ? 'Xem' : 'Đề';
-          const btn1Icon = isCasio ? 'fa-play' : 'fa-file-alt';
-          const btn2Label = isCasio ? 'Luyện' : 'Chữa';
-          const btn2Icon = isCasio ? 'fa-dumbbell' : 'fa-video';
-          const link2 = item.linkGiai || '#';
-          const hasLink2 = item.linkGiai && item.linkGiai.length > 1;
+        // Buttons Logic
+        const btn1Label = isCasio ? 'Xem' : 'Đề';
+        const btn1Icon = isCasio ? 'fa-play' : 'fa-file-alt';
+        const btn2Label = isCasio ? 'Luyện' : 'Chữa';
+        const btn2Icon = isCasio ? 'fa-dumbbell' : 'fa-video';
+        const link2 = item.linkGiai || '#';
+        const hasLink2 = item.linkGiai && item.linkGiai.length > 1;
 
-          buttonsHTML = `
-            <div class="flex gap-2 w-full md:w-auto mt-2 md:mt-0">
-              <a href="${item.link}" target="_blank" class="flex-1 md:flex-none px-4 py-2 bg-white/10 hover:bg-white/20 text-white text-xs font-black rounded-xl uppercase tracking-wider text-center transition">
-                <i class="fas ${btn1Icon} mr-1"></i> ${btn1Label}
-              </a>
-              ${ (isExam || (isCasio && hasLink2)) ? `
-              <a href="${link2}" target="_blank" class="flex-1 md:flex-none px-4 py-2 bg-primary hover:bg-primaryDark text-white text-xs font-black rounded-xl uppercase tracking-wider text-center transition ${!hasLink2 ? 'opacity-50 pointer-events-none':''}">
-                <i class="fas ${btn2Icon} mr-1"></i> ${btn2Label}
-              </a>
-              ` : '' }
-            </div>
-          `;
+        let actionHTML = '';
+        if(isLocked) {
+           actionHTML = `<span class="text-xs text-gray-500 italic"><i class="fas fa-lock"></i> Sắp ra mắt</span>`;
         } else {
-          // fallback default single click
-          cardClass += " cursor-pointer";
+           actionHTML = `
+            <div class="flex gap-2 shrink-0">
+               <a href="${item.link}" target="_blank" class="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-white text-xs font-bold rounded-lg transition" title="${btn1Label}"><i class="fas ${btn1Icon}"></i> ${viewMode==='detail' ? btn1Label : ''}</a>
+               ${ (isExam || (isCasio && hasLink2)) ? `
+               <a href="${link2}" target="_blank" class="px-3 py-1.5 bg-primary hover:bg-primaryDark text-white text-xs font-bold rounded-lg transition ${!hasLink2 ? 'opacity-50 pointer-events-none':''}"><i class="fas ${btn2Icon}"></i> ${viewMode==='detail' ? btn2Label : ''}</a>
+               ` : '' }
+            </div>
+           `;
         }
 
         const clickAttr = (!isExam && !isCasio && !isLocked) ? `onclick="window.open('${item.link}', '_blank')"` : "";
-
-        // Meta tags rendering
         const levelBadge = getLevelBadge(item.level);
         const targetBadges = getTargetBadges(item.targets);
 
-        const html = `
-          <div class="${cardClass}" ${clickAttr}>
-            <div class="w-11 h-11 rounded-2xl bg-white/5 flex items-center justify-center shrink-0 ${!isLocked ? 'group-hover:bg-primary transition' : ''}">
-              ${isLocked ? '<i class="fas fa-lock text-sm text-gray-500"></i>' : '<i class="fas fa-play text-xs text-white"></i>'}
+        let html = '';
+
+        if (viewMode === 'compact') {
+          // ================= COMPACT VIEW =================
+           html = `
+            <div class="bg-cardBg border border-white/5 hover:border-primary/50 px-4 py-3 rounded-xl flex items-center justify-between gap-3 group relative transition ${isLocked?'opacity-60':''}" ${clickAttr}>
+               <div class="flex items-center gap-3 min-w-0">
+                 <i class="fas ${doneOn ? 'fa-circle-check text-green-500' : 'fa-circle text-white/10'} text-xs shrink-0 cursor-pointer hover:text-green-500 transition" onclick="event.stopPropagation(); toggleDone(${item.id})"></i>
+                 <div class="min-w-0">
+                    <div class="flex items-center gap-2">
+                       <h3 class="font-bold text-sm text-gray-200 truncate group-hover:text-primary transition">${escapeHtml(item.title)}</h3>
+                       ${isDraft ? '<span class="text-[9px] bg-yellow-500 text-black px-1 rounded font-bold">DRAFT</span>':''}
+                       ${favOn ? '<i class="fas fa-star text-[10px] text-yellow-400"></i>' : ''}
+                    </div>
+                    <div class="flex items-center gap-1 mt-0.5 text-[10px] opacity-70">
+                       ${targetBadges} ${levelBadge}
+                    </div>
+                 </div>
+               </div>
+               
+               <div class="flex items-center gap-3">
+                  ${actionHTML}
+                  <button onclick="event.stopPropagation(); toggleFav(${item.id})" class="text-gray-500 hover:text-yellow-400 transition" title="Lưu"><i class="${favOn?'fas':'far'} fa-star"></i></button>
+                  ${isAdmin ? `<button onclick="event.stopPropagation(); editLesson(${item.id})" class="text-blue-500 hover:text-blue-400" title="Sửa"><i class="fas fa-pen"></i></button> <button onclick="event.stopPropagation(); deleteLesson(${item.id})" class="text-red-500 hover:text-red-400" title="Xóa"><i class="fas fa-trash"></i></button>` : ''}
+               </div>
             </div>
+           `;
+        } else {
+          // ================= DETAIL VIEW =================
+          html = `
+            <div class="bg-cardBg border border-white/10 hover:border-primary/50 p-5 rounded-2xl flex flex-col md:flex-row items-start md:items-center gap-4 transition group relative ${isLocked?'grayscale opacity-60':''}" ${clickAttr}>
+              <div class="w-11 h-11 rounded-2xl bg-white/5 flex items-center justify-center shrink-0 group-hover:bg-primary transition">
+                ${isLocked ? '<i class="fas fa-lock text-sm text-gray-500"></i>' : (doneOn ? '<i class="fas fa-check text-white font-black"></i>' : '<i class="fas fa-play text-xs text-white"></i>')}
+              </div>
 
-            <div class="flex-grow min-w-0 w-full">
-              <h3 class="font-black text-gray-200 ${!isLocked ? 'group-hover:text-white' : ''} text-base transition flex flex-wrap items-center">
-                ${escapeHtml(item.title)} ${badge} ${doneBadge} ${levelBadge}
-              </h3>
-              <p class="text-sm text-gray-400 ${isLocked ? 'opacity-70' : ''} mb-1">${escapeHtml(item.desc || '')}</p>
-              
-              <div class="flex flex-wrap gap-1 mb-2">${targetBadges}</div>
+              <div class="flex-grow min-w-0 w-full">
+                <h3 class="font-black text-gray-200 group-hover:text-white text-base transition flex flex-wrap items-center">
+                  ${escapeHtml(item.title)} ${isDraft ? '<span class="text-[9px] bg-yellow-500 text-black px-1 rounded ml-2">DRAFT</span>':''} ${levelBadge}
+                </h3>
+                <p class="text-sm text-gray-400 mb-1 line-clamp-2">${escapeHtml(item.desc || '')}</p>
+                <div class="flex flex-wrap gap-1 mb-2">${targetBadges}</div>
+                
+                <div class="mt-2 flex gap-2 ${isLocked ? 'hidden' : ''}">
+                  <button onclick="event.stopPropagation(); toggleFav(${item.id})" class="text-xs font-bold ${favOn ? 'text-yellow-400':'text-gray-500 hover:text-gray-300'} flex items-center gap-1"><i class="${favOn?'fas':'far'} fa-star"></i> Lưu</button>
+                  <button onclick="event.stopPropagation(); toggleDone(${item.id})" class="text-xs font-bold ${doneOn ? 'text-green-400':'text-gray-500 hover:text-gray-300'} flex items-center gap-1"><i class="${doneOn?'fas':'far'} fa-circle-check"></i> Đã học</button>
+                </div>
+              </div>
 
-              <div class="mt-2 flex flex-wrap gap-2 ${isLocked ? 'hidden' : ''}">
-                <button onclick="event.stopPropagation(); toggleFav(${item.id})"
-                  class="px-3 py-2 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition text-xs font-black flex items-center gap-2">
-                  <i class="fas ${favOn ? 'fa-star text-yellow-400' : 'fa-star text-gray-400'}"></i>
-                  ${favOn ? 'Đã lưu' : 'Lưu'}
-                </button>
+              ${actionHTML}
 
-                <button onclick="event.stopPropagation(); toggleDone(${item.id})"
-                  class="px-3 py-2 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition text-xs font-black flex items-center gap-2">
-                  <i class="fas ${doneOn ? 'fa-circle-check text-green-400' : 'fa-circle'}"></i>
-                  ${doneOn ? 'Đã học' : 'Đánh dấu'}
-                </button>
+              <div class="admin-only absolute top-3 right-3 flex gap-2">
+                 <button onclick="event.stopPropagation(); editLesson(${item.id})" class="w-7 h-7 rounded bg-blue-500/10 text-blue-400 flex items-center justify-center"><i class="fas fa-pen text-xs"></i></button>
+                 <button onclick="event.stopPropagation(); deleteLesson(${item.id})" class="w-7 h-7 rounded bg-red-500/10 text-red-400 flex items-center justify-center"><i class="fas fa-trash text-xs"></i></button>
               </div>
             </div>
-
-            ${buttonsHTML}
-
-            <div class="admin-only absolute top-3 right-3 flex gap-2">
-               <button onclick="event.stopPropagation(); editLesson(${item.id})" class="w-8 h-8 rounded-lg bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 flex items-center justify-center transition" title="Sửa">
-                <i class="fas fa-pen text-xs"></i>
-              </button>
-              <button onclick="event.stopPropagation(); deleteLesson(${item.id})" class="w-8 h-8 rounded-lg bg-red-500/10 hover:bg-red-500/20 text-red-400 flex items-center justify-center transition" title="Xóa">
-                <i class="fas fa-trash-alt text-xs"></i>
-              </button>
-            </div>
-          </div>
-        `;
+          `;
+        }
         list.innerHTML += html;
       });
     }
@@ -997,13 +1453,15 @@
 
     function checkPassword() {
       const pass = (document.getElementById('admin-pass').value || '').trim();
-      // SHA-256 for basic check
+      // Simple hash check (SHA-256 for "ueihadmin" -> just an example, replace or use better auth)
+      // For this demo, using the hash from previous version
       async function sha256Hex(str) {
         const enc = new TextEncoder().encode(str);
         const buf = await window.crypto.subtle.digest('SHA-256', enc);
         return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
       }
       sha256Hex(pass).then(hash => {
+        // HASH for "ueihadmin" (example)
         if(hash === "eac63159e8c153a78d0598cf6726d8500119ad7d3ef2e2489da56eb7127d06df") {
           isAdmin = true;
           document.body.classList.add('admin-mode');
@@ -1043,10 +1501,9 @@
 
     function openAddModal() {
       document.getElementById('inp-cat-hidden').value = currentCat;
-      document.getElementById('inp-edit-id').value = ""; // clear edit id
+      document.getElementById('inp-edit-id').value = "";
       document.getElementById('modal-title').innerText = "Thêm Bài Mới";
       
-      // Clear form
       document.getElementById('inp-title').value = '';
       document.getElementById('inp-link').value = '';
       document.getElementById('inp-link-giai').value = '';
@@ -1055,7 +1512,6 @@
       document.querySelectorAll('.chk-target').forEach(c => c.checked = false);
       document.getElementById('inp-draft').checked = false;
 
-      // Adjust inputs visibility/labels based on category
       const isExam = currentCat.startsWith('exam-');
       const isCasio = currentCat.startsWith('casio-');
 
@@ -1090,13 +1546,11 @@
       document.getElementById('inp-level').value = item.level || '';
       document.getElementById('inp-draft').checked = (item.status === 'draft');
 
-      // Check boxes
       const targets = item.targets || [];
       document.querySelectorAll('.chk-target').forEach(c => {
          c.checked = targets.includes(c.value);
       });
 
-      // Visibility Logic (same as Add)
       const isExam = item.cat.startsWith('exam-');
       const isCasio = item.cat.startsWith('casio-');
 
@@ -1132,7 +1586,6 @@
       if(!title) return toast("Thiếu tiêu đề!", "err");
 
       if(id) {
-        // UPDATE
         const idx = database.findIndex(x => x.id == id);
         if(idx !== -1) {
           database[idx] = { 
@@ -1143,7 +1596,6 @@
           toast("Đã cập nhật bài viết 👌", "ok");
         }
       } else {
-        // CREATE
         database.push({
           id: Date.now(),
           cat, title, link: link||"#", linkGiai, desc, 
@@ -1224,9 +1676,6 @@
       toast("Đã lưu card Trang chủ 🪄", "ok");
     }
 
-    // =========================
-    // EXPORT HTML
-    // =========================
     function exportHTML() {
       let html = document.documentElement.outerHTML;
       html = html.replace(/let siteConfig = \{[\s\S]*?\};/, `let siteConfig = ${JSON.stringify(siteConfig)};`);
@@ -1235,7 +1684,7 @@
       const blob = new Blob([html], {type:'text/html'});
       const a = document.createElement('a');
       a.href = URL.createObjectURL(blob);
-      a.download = 'Ueih_Casio_V4.html';
+      a.download = 'Ueih_Casio_V5.html';
       document.body.appendChild(a); a.click(); document.body.removeChild(a);
       toast("Đã export HTML ✅", "ok");
     }
@@ -1247,9 +1696,10 @@
       loadState();
       renderConfig();
       renderHomeCards();
-      switchPage('home'); // Fix: Show home page by default
+      switchPage('home');
     }
     window.addEventListener('resize', () => { if(window.innerWidth >= 768) closeDrawer(); });
     init();
   </script>
+
 </body></html>
